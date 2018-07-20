@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="divTabInfo" style="padding-left: 0px;">
+        <div class="layer_topfixed">
+            <div class="layer_topfixed_inner">
+                <div id="divToolbar" class="datagrid-toolbar">
+                    <a id="btnSave" href="javascript:;" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" style="float: left; margin-top: 2px;" plain="true" iconcls="icon-save" group=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">Save</span><span class="l-btn-icon icon-save">&nbsp;</span></span></a>
+                </div>
+            </div>
+        </div>
+
+        <fieldset class="regFlow">
+            <legend><a extname="btnExpand" exttarget="tbGeneral" href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" iconcls="icon-remove" style="font-size: 15px; color: #0069e9;" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">General</span><span class="l-btn-icon icon-remove">&nbsp;</span></span></a></legend>
+            <table id="tbGeneral" width="100%" cellspacing="0" cellpadding="0" border="0" class="tables mainReg3">
+                <tbody>
+                    <tr style="height: 30px;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">
+                                When creating a new report,
+                                <br>
+                                automatically share with people in my company:
+                            </span>
+                        </th>
+                        <td>
+                            <img id="imgAutoShare" src="/Content/images/ob_settings/switch-on.png" style="cursor: pointer;" onclick="OpenBookGeneral.changeAutoStatus();">
+                            <input type="hidden" id="autoShare" value="1">
+
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;display:none;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">Show toolbar on report list:</span>
+                        </th>
+                        <td>
+                            <img id="imgToolbar" src="/Content/images/ob_settings/switch-off.png" style="cursor: pointer;" onclick="OpenBookGeneral.changeToolbarStatus();">
+                            <input type="hidden" id="toolbar" value="0">
+
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">My Current Company Template:</span>
+                        </th>
+                        <td style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">
+
+                            <select id="ddlTemplate" data-options="editable:false,multiple:true,onLoadSuccess:OpenBookGeneral.onLoadSuccess" class="easyui-combobox combobox-f combo-f" style="width: 120px; font-family: Arial; color: rgb(160, 160, 160); display: none;" target="divTemplate" comboname="dept">
+                                <option value="55">MRP</option>
+                                <option value="56">DNA</option>
+                                <option value="87">Aventa_VMI</option>
+                                <option value="81">Data Warehouse</option>
+                                <option value="92">None</option>
+                                <option value="102">Hyde</option>
+                                <option value="112">IQapture</option>
+                                <option value="126">M1 ECi</option>
+                                <option value="167">New Template</option>
+                                <option value="457">New Template</option>
+                                <option value="190">DNASP</option>
+                                <option value="147">Oracle ERP</option>
+                                <option value="120">Eaves</option>
+                                <option value="229">New Template</option>
+                                <option value="213">Valuechain</option>
+                            </select><span class="combo" sourceid="ddlTemplate" style="width: 118px; height: 20px;"><input type="text" class="combo-text validatebox-text" autocomplete="off" readonly="readonly" style="cursor: pointer; width: 94px; height: 20px; line-height: 20px;"><span><span class="combo-arrow" style="height: 18px;"></span></span><input type="hidden" class="combo-value" name="dept" value="55"><input type="hidden" class="combo-value" name="dept" value="56"><input type="hidden" class="combo-value" name="dept" value="81"></span>
+                            <div id="divTemplate" class="fieldTips" style="display: block; z-index: 200; position: absolute; left: 341px; top: 225px;">
+                                <div class="fieldTipsMsgPic"></div>
+                                <div style="position: relative; display: none;">
+                                    <img alt="" src="/content/css/home/css_images/hint/error_corner.gif" style="z-index: 99; position: absolute;">
+                                    <div id="divTemplateMsg" class="fieldTipsMsg" style="width: 360px;"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset class="regFlow">
+            <legend><a extname="btnExpand" exttarget="tbGeneral" href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" iconcls="icon-remove" style="font-size: 15px; color: #0069e9;" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">Calendar</span><span class="l-btn-icon icon-remove">&nbsp;</span></span></a></legend>
+            <table id="tbGeneral" width="100%" cellspacing="0" cellpadding="0" border="0" class="tables mainReg3">
+                <tbody>
+                    <tr style="height: 30px;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">Custom calendar:</span>
+                        </th>
+                        <td>
+                            <img id="imgEnableCalendar" src="/Content/images/ob_settings/switch-off.png" style="cursor: pointer;" onclick="OpenBookGeneral.changeEnableCalendarStatus();">
+                            <input type="hidden" id="enableCalendar" value="0">
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <td colspan="2" align="left">
+                            <div id="cdiv" style="display: none;">
+                                <div id="tb" style="height: auto">
+                                    <a href="#" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:'icon-add',plain:true" onclick="OpenBookGeneral.addYear()" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">Add Year</span><span class="l-btn-icon icon-add">&nbsp;</span></span></a>
+                                </div>
+                                <div class="panel datagrid" style="width: 920px;">
+                                    <div class="datagrid-wrap panel-body panel-body-noheader panel-body-noborder" title="" style="width: 920px; height: 400px;">
+                                        <div class="datagrid-view" sourceid="dg" style="width: 920px; height: 0px;">
+                                            <div class="datagrid-view1" style="width: 0px;"><div class="datagrid-header" style="width: 0px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 0px;"><tbody><tr class="datagrid-header-row"><td rowspan="0"><div class="datagrid-header-rownumber"></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 0px; margin-top: 0px; height: 399px;"><div class="datagrid-body-inner"></div></div><div class="datagrid-footer" style="width: 0px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><div class="datagrid-view2" style="width: 920px;"><div class="datagrid-header" style="width: 920px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 0px;"><tbody><tr class="datagrid-header-row"></tr></tbody></table></div></div><div class="datagrid-body" style="width: 920px; margin-top: 0px; height: 399px;"></div><div class="datagrid-footer" style="width: 920px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><table id="dg" style="display: none;">
+                                                <thead>
+                                                    <tr></tr>
+                                                </thead>
+                                            </table>
+                                            <style type="text/css" easyui="true">
+                                            </style>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset class="regFlow" style="display: none;">
+            <legend><a extname="btnExpand" exttarget="tbDeliveryReports" href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" iconcls="icon-remove" style="font-size: 15px; color: #0069e9;" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">Delivery Reports</span><span class="l-btn-icon icon-remove">&nbsp;</span></span></a></legend>
+            <table id="tbDeliveryReports" width="100%" cellspacing="0" cellpadding="0" border="0" class="tables mainReg3">
+                <tbody>
+                    <tr style="height: 20px;">
+                        <th scope="row" width="120">
+                            <span class="">OnTime Days:</span>
+                        </th>
+                        <td>
+                            <input id="Ontime" name="Ontime" value="0" style="width: 30px;" fcv="validFile" title="OnTime Day Setting" validformat="text_money_control|value|0|0|Ontime" target="divOnTime" source="Ontime">
+                            <div id="divOnTime" class="fieldTips" style="display: block; z-index: 200; position: absolute; left: 32px; top: 0px;">
+                                <div class="fieldTipsMsgPic"></div>
+                                <div style="position: relative; display: none;">
+                                    <img alt="" src="/content/css/home/css_images/hint/error_corner.gif" style="z-index: 99; position: absolute;">
+                                    <div id="divOnTimeMsg" class="fieldTipsMsg" style="width: 300px;">When CUSTOMERREQDATE is null or (CUSTOMERREQDATE -DELIVERYDATE) &gt;  this setting is ONTIME</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 20px;">
+                        <th scope="row" width="120">
+                            <span class="">Late Days:</span>
+                        </th>
+                        <td>
+                            <input id="Late" name="Late" value="0" style="width: 30px;" fcv="validFile" title="Late Day Setting" validformat="text_money_control|value|0|0|Late" target="divLate" source="Late">
+                            <div id="divLate" class="fieldTips" style="display: block; z-index: 200; position: absolute; left: 32px; top: 0px;">
+                                <div class="fieldTipsMsgPic"></div>
+                                <div style="position: relative; display: none;">
+                                    <img alt="" src="/content/css/home/css_images/hint/error_corner.gif" style="z-index: 99; position: absolute;">
+                                    <div id="divLateMsg" class="fieldTipsMsg" style="width: 300px;">When CUSTOMERREQDATE is not null and (DELIVERYDATE - CUSTOMERREQDATE) &gt;  this setting is LATE</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset class="regFlow">
+            <legend><a extname="btnExpand" exttarget="tbUpload" href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" iconcls="icon-remove" style="font-size: 15px; color: #0069e9;" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">Upload</span><span class="l-btn-icon icon-remove">&nbsp;</span></span></a></legend>
+            <table id="tbUpload" width="100%" cellspacing="0" cellpadding="0" border="0" class="tables mainReg3">
+                <tbody>
+                    <tr style="height: 30px;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">Upload Username:</span>
+                        </th>
+                        <td>
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">my6425</span>
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <th scope="row" width="320">
+                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">Upload Password:</span>
+                        </th>
+                        <td>
+                            <span id="uploadPassword" style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160); width: 100px;">NgC!Qk.R2'72qj"</span>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="OpenBookGeneral.GeneratePassword();" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" iconcls="icon-key16" style="" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon icon-key16">&nbsp;</span></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+
+    </div>
+</body>
+</html>

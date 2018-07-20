@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="top">
+        <input type="checkbox" name="ck" value="1" />
+        图片
+        <input type="checkbox" name="ck" value="2" />
+        新闻
+        <input type="checkbox" name="ck" value="3" />
+        动画
+        <input type="checkbox" name="ck" value="4" />
+        电影
+        <input type="checkbox" name="ck" value="5" />
+        图书
+        <input type="checkbox" name="ck" value="6" />
+        游戏
+    </div>
+
+    <input type='button' value='选择' onclick='check_box();' />
+
+    <div>
+        <input type="checkbox" id="chk" />
+    </div>
+    <select name="carCos" class="disabled">
+        <optgroup label="American"></optgroup>
+        <option value="General Motors">General Motors</option>
+        <option value="Ford">Ford Motor Company</option>
+        <option value="Chrysler">DaimlerChrysler</option>
+        <optgroup label="Japanese"></optgroup>
+    </select>
+    <script type="text/javascript">
+        function check_box(ck) {
+            var checkboxa = $("input[name='ck']:checked").each(function () {
+                var channels = $(this).val();
+
+            })
+        }
+        var oChk = document.getElementById('chk');
+        oChk.onclick = function () {
+            if (this.checked) {
+                alert('选中');
+            } else {
+                alert('没有选中');
+            }
+        };
+    </script>
+</body>
+</html>

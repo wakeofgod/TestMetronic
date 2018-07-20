@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            var mySelect = $('#first-disabled2');
+
+            $('#special').on('click', function () {
+                mySelect.find('option:selected').prop('disabled', true);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#special2').on('click', function () {
+                mySelect.find('option:disabled').prop('disabled', false);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#basic2').selectpicker({
+                liveSearch: true,
+                maxOptions: 1
+            });
+            function getJsonLength(jsonData) {
+                var jsonLength = 0;
+                for (var item in jsonData) { jsonLength++; }
+                return jsonLength;
+            };
+            $.ajax({
+                url: "AutoComplete.asmx/GetAllBusinessUnit",    //后台webservice里的方法名称
+                type: "post",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                data: '{}',
+                traditional: true,
+                success: function (data) {
+                    for (var i in data) {
+                        var jsonObj = $.parseJSON(data[i]);
+                        var optionstring = "";
+                        for (var item in jsonObj) {
+                            jsonObj = eval(jsonObj)
+                            for (var i = 0; i < getJsonLength(jsonObj); i++) {
+                                //optionstring += "<option value=\"" + jsonObj[i].DataID + "\" >" + jsonObj[i].SettingValue + "</option>";
+                                optionstring += "<option>" + jsonObj[i].SettingValue + "</option>";
+                            }
+                            //alert(optionstring);
+
+                        }
+                        var myobj = document.getElementById('BUSelect');
+
+                        if (myobj.options.length == 0)
+                        {
+                            $("#BUSelect").html(optionstring);
+                            $('#BUSelect').selectpicker('refresh');
+                        }
+
+                    }
+                },
+                error: function (msg) {
+                    alert("出错了！");
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                </div>
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <select id="BUSelect" class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+
+            </div>
+            <!-- .container-fluid -->
+        </nav>
+
+
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" />
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/jquery.min.js"></script>
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+</head>
+<body>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">客资类型：</label>
+        <div class="col-sm-4">
+            <select id="usertype" name="usertype" class="selectpicker show-tick form-control" multiple data-live-search="false">
+                <option value="0">苹果</option>
+                <option value="1">菠萝</option>
+                <option value="2">香蕉</option>
+                <option value="3">火龙果</option>
+                <option value="4">梨子</option>
+                <option value="5">草莓</option>
+                <option value="6">哈密瓜</option>
+                <option value="7">椰子</option>
+                <option value="8">猕猴桃</option>
+                <option value="9">桃子</option>
+            </select>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert(111);
+            $("#usertype").multiSelect();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert(111);
+            $("#usertype").multiSelect();
+        });
+    $('#example-single-selected').multiselect();
+    </script>
+    <br/>
+    <script type="text/javascript">
+    $('#example-single').multiselect();
+    </script>
+    <!-- Note the missing multiple attribute! -->
+    <select id="example-single">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+        <option value="5">Option 5</option>
+        <option value="6">Option 6</option>
+    </select>
+    <br/>
+    <!-- Note the missing multiple attribute! -->
+    <!--设定了多个选项被选中，但是没有加多选属性，只有最后一个被选中-->
+    <select id="example-single-selected">
+        <option value="1">Option 1</option>
+        <option value="2" selected="selected">Option 2</option>
+        <!-- Option 3 will be selected in advance ... -->
+        <option value="3" selected="selected">Option 3</option>
+        <option value="4">Option 4</option>
+        <option value="5">Option 5</option>
+        <option value="6">Option 6</option>
+    </select>
+    <!--多个提前选中-->
+    
+    <!-- Note the missing multiple attribute! -->
+    <div class="form-group">
+        <div class="col-sm-4">
+            <select id="example-multiple-selected" class="selectpicker show-tick form-control"  multiple="multiple" data-live-search="false">
+                <option value="1">Option 1</option>
+                <option value="2" selected="selected">Option 2</option>
+                <!-- Option 3 will be selected in advance ... -->
+                <option value="3" selected="selected">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+                <option value="6">Option 6</option>
+            </select>
+        </div>
+    </div>      
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert(222);
+            $('#example-multiple-selected').multiselect();
+        });
+    </script>      
+</body>
+</html>

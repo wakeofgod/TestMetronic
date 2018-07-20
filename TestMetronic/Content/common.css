@@ -1,0 +1,26 @@
+﻿.defaultTextColor{
+    color: #888;
+}
+
+
+.addButton {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-right: 15px;
+    text-align: center;
+    line-height: 42px;
+    color: rgba(255,255,255,.3);
+    display: inline-block;
+    font-size: 34px;
+    text-indent: -1px;
+}
+
+.tableCaption {
+    padding-top: 10px;
+}
+
+.tableRow {
+    height: 50px;
+}
+

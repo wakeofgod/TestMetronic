@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Serif DrawPlus 12,0,4,27 (May 24, 08:37:51) (http://www.serif.com) -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" width="271.231" height="271.232">
+	<defs>
+		<clipPath id="clip_dp_001" clipPathUnits="userSpaceOnUse">
+			<path d="M 1391.37,560.607 L 1571.65,560.607 L 1571.65,687.427 L 1391.37,687.427 Z "/>
+		</clipPath>
+	</defs>
+	<g id="dp_group001" transform="matrix(1,0,0,1,-1345.4,-494.944)">
+		<path id="dp_path002" fill="#e9cd19" fill-rule="evenodd" stroke="none" stroke-width="6.66667" d="M 1348.73,541.929 C 1348.73,517.82 1368.28,498.276 1392.39,498.276 L 1569.65,498.276 C 1593.75,498.276 1613.3,517.82 1613.3,541.929 L 1613.3,719.189 C 1613.3,743.299 1593.75,762.843 1569.65,762.843 L 1392.39,762.843 C 1368.28,762.843 1348.73,743.299 1348.73,719.189 Z "/>
+		<path id="dp_path003" fill="white" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 1394.98,662.955 L 1406.31,662.955 C 1410.19,664.273 1414.11,665.399 1418.04,666.332 L 1418.04,725.783 L 1394.98,725.783 Z "/>
+		<path id="dp_path004" fill="white" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 1561.68,573.884 C 1561.89,572.596 1562.08,571.311 1562.24,570.023 L 1563.56,570.023 L 1563.56,725.78 L 1540.5,725.78 L 1540.5,623.067 C 1544.87,617.317 1548.73,611.067 1552,604.341 C 1556.78,594.475 1559.98,584.231 1561.68,573.884 Z "/>
+		<path id="dp_path005" fill="white" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 1514.8,647.501 C 1519.14,644.52 1523.28,641.236 1527.18,637.66 L 1527.18,725.783 L 1504.12,725.783 L 1504.12,654.003 C 1507.79,652.031 1511.36,649.86 1514.8,647.501 Z "/>
+		<path id="dp_path006" fill="white" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 1470.64,665.88 C 1477.54,664.539 1484.29,662.601 1490.8,660.103 L 1490.8,725.783 L 1467.74,725.783 L 1467.74,666.407 C 1468.71,666.24 1469.67,666.065 1470.64,665.88 Z "/>
+		<path id="dp_path007" fill="white" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 1431.36,668.917 C 1439.09,669.897 1446.81,670.16 1454.42,669.739 L 1454.42,725.785 L 1431.36,725.785 Z "/>
+		<g id="dp_group008">
+			<g id="dp_group009">
+				<path id="dp_path010" clip-path="url(#clip_dp_001)" fill="white" fill-rule="evenodd" stroke="none" stroke-width="3.33333" d="M 1491.96,446.751 C 1551.19,475.509 1576.61,545.357 1548.74,602.759 C 1520.86,660.16 1450.25,683.38 1391.03,654.62 C 1429.76,673.429 1483.76,642.143 1511.63,584.741 C 1539.5,527.34 1530.7,465.559 1491.96,446.751 Z "/>
+			</g>
+			<path id="dp_path011" fill="white" fill-rule="evenodd" stroke="none" stroke-width="3.33333" d="M 1538.7,525.789 L 1580.16,566.355 L 1497.24,566.355 Z "/>
+		</g>
+	</g>
+</svg>

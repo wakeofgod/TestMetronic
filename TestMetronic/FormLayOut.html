@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box">
+                <div class="portlet-title">
+                    <a id="btnSave" href="javascript:" style="float: left; margin-top: 2px;" plain="true" iconcls="icon-save" group="">
+                        <span class="l-btn-left l-btn-icon-left">
+                            <span class="l-btn-text" onclick="alert(save)">Save</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="portlet-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">General</div>
+                        <div class="panel-body form">
+                            <form action="#" class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="col-md-3" style="text-align:right">
+                                            <label class="control-label">
+                                                When creating a new report,<br>
+                                                automatically share with people in my company:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="switch" data-on="danger" data-off="warning">
+                                                <input type="checkbox" name="status" data-size="large">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3" style="text-align:right">
+                                            <label class="control-label">
+                                                My Current Company Template:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select id="usertype" name="usertype" class="selectpicker show-tick form-control" multiple data-live-search="false">
+                                                <option value="0">苹果</option>
+                                                <option value="1">菠萝</option>
+                                                <option value="2">香蕉</option>
+                                                <option value="3">火龙果</option>
+                                                <option value="4">梨子</option>
+                                                <option value="5">草莓</option>
+                                                <option value="6">哈密瓜</option>
+                                                <option value="7">椰子</option>
+                                                <option value="8">猕猴桃</option>
+                                                <option value="9">桃子</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Calendar</div>
+                        <div class="panel-body form">
+                            <form action="#" class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="col-md-3" style="text-align:right">
+                                            <label class="control-label">
+                                                Custom calendar:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="switch" data-on="danger" data-off="warning">
+                                                <input type="checkbox" name="Calendar" data-size="large">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <a href="javascript:void(0)" onclick="alert('添加年')">addyear </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="Month">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>
+                                            2017
+                                            <a href="" onclick="alert('delete')">remove</a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Upload</div>
+                        <div class="panel-body form">
+                            <form action="#" class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="col-md-3" style="text-align:right">
+                                            <label class="control-label">
+                                                Upload Username:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160);">my6425</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3" style="text-align:right">
+                                            <label class="control-label">
+                                                Upload Password:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span id="uploadPassword" style="font-family: Arial; font-weight: normal; color: rgb(160, 160, 160); width: 100px;">NgC!Qk.R2'72qj"</span>&nbsp; &nbsp;
+                                            <a href="javascript:void(0)" onclick="alert('change password')">** </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-circle green" onclick="alert('save')">save</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/jquery.min.js"></script>
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[name='status']").bootstrapSwitch({
+                onText: "Y",
+                offText: "N",
+                onColor: "success",
+                offColor: "info",
+                size: "small",
+                onSwitchChange: function (event, state) {
+                    if (state == true) {
+                        alert("Y");
+                    } else {
+                        alert("N");
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("[name='Calendar']").bootstrapSwitch({
+                onText: "Y",
+                offText: "N",
+                onColor: "success",
+                offColor: "info",
+                size: "small",
+                onSwitchChange: function (event, state) {
+                    if (state == true) {
+                        alert("Y");
+                    } else {
+                        alert("N");
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert(111);
+            $("#usertype").multiSelect();
+        });
+    </script>
+</body>
+
+</html>

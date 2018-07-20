@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Serif DrawPlus 12,0,4,27 (May 24, 08:37:51) (http://www.serif.com) -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" width="271.231" height="271.232">
+	<defs>
+		<clipPath id="clip_dp_001" clipPathUnits="userSpaceOnUse">
+			<path d="M 724.891,261.307 L 909.601,261.307 L 909.601,391.239 L 724.891,391.239 Z "/>
+		</clipPath>
+	</defs>
+	<g id="dp_group001" transform="matrix(1,0,0,1,-689.276,-172.82)">
+		<path id="dp_path002" fill="#e9cd19" fill-rule="evenodd" stroke="none" stroke-width="6.66667" d="M 692.608,219.805 C 692.608,195.696 712.152,176.152 736.261,176.152 L 913.52,176.152 C 937.629,176.152 957.173,195.696 957.173,219.805 L 957.173,397.065 C 957.173,421.175 937.629,440.719 913.52,440.719 L 736.261,440.719 C 712.152,440.719 692.608,421.175 692.608,397.065 Z "/>
+		<g id="dp_group003">
+			<g id="dp_group004">
+				<path id="dp_path005" clip-path="url(#clip_dp_001)" fill="white" fill-rule="evenodd" stroke="none" stroke-width="3.33333" d="M 827.959,144.655 C 888.639,174.12 914.68,245.681 886.124,304.492 C 857.567,363.303 785.225,387.092 724.545,357.627 C 764.229,376.897 819.551,344.843 848.108,286.032 C 876.665,227.221 867.644,163.925 827.959,144.655 Z "/>
+			</g>
+			<path id="dp_path006" fill="white" fill-rule="evenodd" stroke="none" stroke-width="3.33333" d="M 875.843,225.633 L 918.319,267.195 L 833.367,267.195 Z "/>
+		</g>
+		<path id="dp_path007" fill="#e9cd19" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 871.872,275.576 C 876.013,275.576 879.371,278.933 879.371,283.076 C 879.371,287.219 876.013,290.576 871.872,290.576 C 867.731,290.576 864.373,287.219 864.373,283.076 C 864.373,278.933 867.731,275.576 871.872,275.576 Z "/>
+		<path id="dp_path008" fill="#e9cd19" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 795.875,357.576 C 797.255,357.576 798.373,358.695 798.373,360.076 C 798.373,361.457 797.255,362.576 795.875,362.576 C 794.495,362.576 793.376,361.457 793.376,360.076 C 793.376,358.695 794.495,357.576 795.875,357.576 Z "/>
+		<path id="dp_path009" fill="#e9cd19" fill-rule="evenodd" stroke="none" stroke-width="1.33333" d="M 838.373,330.076 C 841.135,330.076 843.373,332.315 843.373,335.076 C 843.373,337.837 841.135,340.076 838.373,340.076 C 835.612,340.076 833.373,337.837 833.373,335.076 C 833.373,332.315 835.612,330.076 838.373,330.076 Z "/>
+	</g>
+</svg>
