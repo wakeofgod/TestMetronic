@@ -113,14 +113,6 @@ C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\roslyn\VBCSCompiler.exe.con
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\TestMetronic.dll.config
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\TestMetronic.dll
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\TestMetronic.pdb
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.Agent.Intercept.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.DependencyCollector.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.Web.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.WindowsServer.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.ApplicationInsights.dll
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.DependencyCollector.xml
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\MyCode\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.AI.Web.xml
