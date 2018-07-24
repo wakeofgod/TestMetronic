@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        @keyframes myfirst
+            {
+                0%   {background: red; left:0px; top:0px;border-radius:20px 25%;}
+                25%  {background: yellow; left:200px; top:0px;border-radius:75%;}
+                50%  {background: blue; left:200px; top:200px;border-radius:20px;}
+                75%  {background: green; left:0px; top:200px;border-radius:50%;}
+                100% {background: red; left:0px; top:0px;}
+            }
+        @-webkit-keyframes myfirst
+        {
+                0%   {background: red; left:0px; top:0px;}
+                25%  {background: yellow; left:200px; top:0px;}
+                50%  {background: blue; left:200px; top:200px;}
+                75%  {background: green; left:0px; top:200px;}
+                100% {background: red; left:0px; top:0px;}
+        }
+    </style>
+</head>
+<body>
+    <!--动画移动位置必须加position,添加infinite就循环，否则就只执行一次-->
+    <div style="width:200px;height:200px;background:red;position:relative;animation:myfirst 5s infinite;">
+        该实例在 Internet Explorer 9 及更早 IE 版本是无效的。
+    </div>
+</body>
+</html>

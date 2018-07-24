@@ -196,6 +196,11 @@
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\jquery-multi-select\LICENSE.txt" />
     <Content Include="css\bootstrap-switch.css" />
     <Content Include="css\bootstrap-switch.js" />
+    <Content Include="ForFunCode\多列.html" />
+    <Content Include="ForFunCode\渐变.html" />
+    <Content Include="ForFunCode\用户界面.html" />
+    <Content Include="ForFunCode\简单动画.html" />
+    <Content Include="ForFunCode\阴影卡片.html" />
     <Content Include="FormLayOut.html" />
     <Content Include="LayOut2.html" />
     <Content Include="LayOut3.html" />
@@ -1745,22 +1750,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A2ZBaseModel.cs" />
-    <Compile Include="AnalyCalendar.cs" />
-    <Compile Include="AnalyseCustomCalendars.cs" />
-    <Compile Include="BaseModel.cs" />
-    <Compile Include="LM_T_CA_AssetActionLog.cs" />
-    <Compile Include="LM_T_CA_Assets.cs" />
-    <Compile Include="LM_T_CA_ScheduleSettings.cs" />
-    <Compile Include="LM_T_CA_StatusField.cs" />
-    <Compile Include="LM_T_CA_Unit.cs" />
-    <Compile Include="LM_T_CA_UsageLogs.cs" />
+    <Compile Include="A2ZModel\A2ZBaseModel.cs" />
+    <Compile Include="A2ZModel\AnalyCalendar.cs" />
+    <Compile Include="A2ZModel\AnalyseCustomCalendars.cs" />
+    <Compile Include="A2ZModel\BaseModel.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_AssetActionLog.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_Assets.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_ScheduleSettings.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_StatusField.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_Unit.cs" />
+    <Compile Include="A2ZModel\LM_T_CA_UsageLogs.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportViewHistory.cs" />
-    <Compile Include="AnalySetting.cs" />
+    <Compile Include="A2ZModel\AnalySetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Template\metronic-4.5.6\assets\apps\img\" />
