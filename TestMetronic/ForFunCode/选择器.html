@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        /*p:not(:nth-of-type(2)){
+            color:red;
+        }*/
+    </style>
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <p>当:first-child 作用于 IE8 及更早版本的浏览器, DOCTYPE 必须已经定义.</p>
+    <script>
+        //下标不同
+        //$("p:not(:nth-of-type(2))").attr("style", "color:red;");
+        $("p:not(:eq(1))").attr("style", "color:red;");
+    </script>
+</body>
+</html>

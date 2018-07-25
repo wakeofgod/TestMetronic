@@ -21,12 +21,26 @@
                 75%  {background: green; left:0px; top:200px;}
                 100% {background: red; left:0px; top:0px;}
         }
+        @keyframes mySecond{
+            0%{left:0px; top:0px;}
+            10%{top:0px;left:800px;}
+            15%{top:200px;left:800px;}
+            20%{top:200px;left:0;}
+            25%{top:400px;left:0;}
+            30%{top:400px;left:800px;}
+            35%{top:600px;left:800px;}
+            40%{top:600px;left:0;}
+            100%{left:0px; top:0px;}
+        }
     </style>
 </head>
 <body>
     <!--动画移动位置必须加position,添加infinite就循环，否则就只执行一次-->
     <div style="width:200px;height:200px;background:red;position:relative;animation:myfirst 5s infinite;">
         该实例在 Internet Explorer 9 及更早 IE 版本是无效的。
+    </div>
+    <div style="width:200px;height:200px;background:green;border-radius:50%;transform:translate(600px,-200px);position:relative;animation:mySecond 10s infinite;">
+        1
     </div>
 </body>
 </html>

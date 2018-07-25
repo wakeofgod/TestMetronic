@@ -200,6 +200,7 @@
     <Content Include="ForFunCode\渐变.html" />
     <Content Include="ForFunCode\用户界面.html" />
     <Content Include="ForFunCode\简单动画.html" />
+    <Content Include="ForFunCode\选择器.html" />
     <Content Include="ForFunCode\阴影卡片.html" />
     <Content Include="FormLayOut.html" />
     <Content Include="LayOut2.html" />
