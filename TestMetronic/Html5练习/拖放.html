@@ -62,20 +62,20 @@
         //    event.preventDefault();
         //});
         //只能使用document对象的方法
-        //window.onload = function () {
-        //    var img1 = document.getElementById("drag1");
-        //    var div = document.getElementById("div1");
-        //    img1.ondragstart = function (event) {
-        //        event.dataTransfer.setData("Text", event.target.id);
-        //    }
-        //    div.ondrop = function (event) {
-        //        var data = event.dataTransfer.getData("Text");
-        //        event.target.appendChild(document.getElementById(data));
-        //    }
-        //    div.ondragover = function (event) {
-        //        event.preventDefault();
-        //    }
-        //};
+        window.onload = function () {
+            var img1 = document.getElementById("drag1");
+            var div = document.getElementById("div1");
+            img1.ondragstart = function (event) {
+                event.dataTransfer.setData("Text", event.target.id);
+            }
+            div.ondrop = function (event) {
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+            }
+            div.ondragover = function (event) {
+                event.preventDefault();
+            }
+        };
 
                             ////document的方法
                             ///* 拖动时触发 */
