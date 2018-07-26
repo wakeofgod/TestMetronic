@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        .droptarget {
+            float: left;
+            width: 100px;
+            height: 35px;
+            margin: 15px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <p>拖动 图片到矩形框中:</p>
+
+    <div id="div1" style="width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;" ></div>
+    <br>
+    <img id="drag1" src="../Content/Images/clock.png" draggable="true" width="336" height="69">
+    <div id="div2"style="width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="drag2" src="../Content/Images/clock.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+                <!--document的方法-->
+                <!--<p>该实例演示了如何使用 addEventListener() 方法向文档对象添加 "ondragstart", "ondrag", "ondragover" 和 "ondrop" 事件。 </p>
+                <p>在两个矩形框中来回拖动 p 元素:</p>
+                <div class="droptarget">
+                    <p draggable="true" id="dragtarget">Drag me!</p>
+                </div>
+                <div class="droptarget"></div>
+                <p style="clear:both;"><strong>注意：</strong>Internet Explorer 8 及更早 IE 版本或 Safari 5.1 及更早版本的浏览器不支持 drag 事件。</p>
+                <p id="demo"></p>-->
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            debugger;
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        //$("#drag1").on('dragstart', function (event) {
+        //    debugger;
+        //    event.dataTransfer.setData("Text", event.target.id);
+        //});
+        //$("#div1").on('drop', function (event) {
+        //    event.preventDefault();
+        //    var data = event.dataTransfer.getData("Text");
+        //    event.target.appendChild(document.getElementById(data));
+        //}).on('dragover', function (event) {
+        //    event.preventDefault();
+        //});
+        //只能使用document对象的方法
+        //window.onload = function () {
+        //    var img1 = document.getElementById("drag1");
+        //    var div = document.getElementById("div1");
+        //    img1.ondragstart = function (event) {
+        //        event.dataTransfer.setData("Text", event.target.id);
+        //    }
+        //    div.ondrop = function (event) {
+        //        var data = event.dataTransfer.getData("Text");
+        //        event.target.appendChild(document.getElementById(data));
+        //    }
+        //    div.ondragover = function (event) {
+        //        event.preventDefault();
+        //    }
+        //};
+
+                            ////document的方法
+                            ///* 拖动时触发 */
+                            //document.addEventListener("dragstart", function (event) {
+                            //    event.dataTransfer.setData("Text", event.target.id);
+                            //    document.getElementById("demo").innerHTML = "开始拖动 p 元素";
+                            //});
+                            //document.addEventListener("dragend", function (event) {
+                            //    document.getElementById("demo").innerHTML = "完成 p 元素的拖动";
+                            //});
+                            ///* 拖动完成后触发*/
+                            //document.addEventListener("dragover", function (event) {
+                            //    event.preventDefault();
+                            //});
+                            //document.addEventListener("drop", function (event) {
+                            //    event.preventDefault();
+                            //    if (event.target.className == "droptarget") {
+                            //        var data = event.dataTransfer.getData("Text");
+                            //        event.target.appendChild(document.getElementById(data));
+                            //    }
+                            //});
+    </script>
+</body>
+</html>
