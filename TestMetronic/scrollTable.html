@@ -51,18 +51,25 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <script>
     $(document).ready(function () {
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-        });
+        //$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        //    $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+        //});
 
         $('table.table').DataTable({
            // ajax: '../ajax/data/arrays.txt',
             scrollY: 200,
             scrollCollapse: true,
-            paging: false
+            paging: true,
+            searching: false,
+            processing: true,
+            //serverSide: true,
+            //"dom": '<"toolbar">frtip'
         });
 
-
+        // $("div.toolbar").html('');
+        //隐藏show entity自带的分页提示
+        $(".dataTables_info").attr("style", "display:none");
+        $(".dataTables_length").attr("style", "display:none");
     });
     </script>
 </body>

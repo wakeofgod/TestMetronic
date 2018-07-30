@@ -1,5 +1,6 @@
-
-.vs/TestMetronic/v14/.suo
-*.cache
-*.dll
 *.pdb
+*.dll
+*.exe
+*.txt
+*.cache
+.vs/TestMetronic/v14/.suo
