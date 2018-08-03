@@ -197,7 +197,7 @@ begin
 					select @Rescheduled='No Change'
 			if @Delivered is null
 				begin
-					if DATEDIFF(DAY,@ContractDelivDate,GETDATE())>=0
+					if DATEDIFF(DAY,@ContractDelivDate,GETDATE())>0
 						select @GROSSARREARS=1
 					else
 						select @GROSSARREARS=0
@@ -314,6 +314,8 @@ begin
 					if exists( select * from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1)
 						begin
 							--不想另外建变量，用现成的,@MaxYear,@MinYear这里不是年了
+							--@MaxYear替代上一周的Actual Arrears 
+							--@MaxWeek替代上一周的[Forecast Arrears]
 							select @MaxYear=ISNULL([Actual Arrears],0),@MaxWeek=ISNULL([Forecast Arrears],0)  from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer
 							if @MaxYear!=0
 								begin
@@ -360,14 +362,14 @@ begin
 			select @TotalArrearsForecastedLines=ISNULL( COUNT(*),0) from #tmp where DelivWeekNum=@WeekNum and DelivYear=@YearNum and Rescheduled='Rescheduled'
 			if @ContractedDelivery!=0 
 				begin
-					select @DSAcontract= cast(@ActualDeliveryLines as float(2))/cast( @ContractedDelivery as float(2))
-					select @DSAcontractC= cast(@ActualDeliveryLines as float(2))/cast(@TotalContractedDelivery as float(2))			
+					select @DSAcontractC= cast(@ActualDeliveryLines as float(2))/cast( @ContractedDelivery as float(2))
+					select @DSAcontract= cast(@ActualDeliveryLines as float(2))/cast(@TotalContractedDelivery as float(2))			
 				end	
 			if (@ActualDeliveryLines+@ArrearsDeliveredLines!=0) and(@ContractedDelivery+@ArrearsForecastedLines!=0)
 				begin
 					--select @DSAArrearsForecasted=(cast( @ContractedDelivery as float(2) )+cast( @ArrearsForecastedLines as float(2)))/(CAST( @ActualDeliveryLines as float(2))+cast( @ArrearsDeliveredLines as float(2)))	
-					select @DSAArrearsForecasted=(cast( @ActualDeliveryLines as float(2) )+cast( @ArrearsDeliveredLines as float(2)))/(CAST( @ContractedDelivery as float(2))+cast( @ArrearsForecastedLines as float(2)))	
-					select @DSAArrearsForecastedC=(cast( @ActualDeliveryLines as float(2) )+cast( @ArrearsDeliveredLines as float(2)))/(CAST( @TotalContractedDelivery as float(2))+cast( @TotalArrearsForecastedLines as float(2)))	
+					select @DSAArrearsForecastedC=(cast( @ActualDeliveryLines as float(2) )+cast( @ArrearsDeliveredLines as float(2)))/(CAST( @ContractedDelivery as float(2))+cast( @ArrearsForecastedLines as float(2)))	
+					select @DSAArrearsForecasted=(cast( @ActualDeliveryLines as float(2) )+cast( @ArrearsDeliveredLines as float(2)))/(CAST( @TotalContractedDelivery as float(2))+cast( @TotalArrearsForecastedLines as float(2)))	
 				end			
 			select @TargetDSA=0.75
 			update TestFinalValue set [Contracted Delivery]=@ContractedDelivery,

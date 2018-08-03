@@ -254,3 +254,6 @@ SUM([Contracted Delivery]) as [Contracted Delivery],
 SUM([DSA(Contract/C)]) as [DSA REAL] from TestFinalValue where WeekNum =24 and YearNum=2018
 
 select sum([DSA(Contract/C)]) from TestFinalValue where WeekNum=28 and YearNum=2018
+
+select [Week/Year],WeekNum,[Actual Arrears],[Forecast Arrears],[Rescheduled Dates],[Projected Arrears] from TestFinalValue where Customer='Airbus Operations Limited (Filton)'
+select Customer, [Week/Year],WeekNum,[Actual Arrears],[Forecast Arrears],[Rescheduled Dates],[Projected Arrears] from TestFinalValue order by Customer,WeekNum asc
