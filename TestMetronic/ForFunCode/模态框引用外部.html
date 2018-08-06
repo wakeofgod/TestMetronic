@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!--<script src="../Content/Template/metronic-4.5.6/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>-->
+</head>
+<body>
+    <h2>模态框（Modal）插件方法</h2>
+    <!-- 按钮触发模态框 -->
+    <button class="btn btn-primary btn-lg"id="btnModal"  data-toggle="modal" data-target="#myModal">
+        开始演示模态框
+    </button>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" id="OutToCalBtn" class="btn grey-mint">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#btnModal").on('click', function () {
+            $("#myModal").modal({
+                //remote: "http://www.baidu.com"
+                remote: "多列.html"
+            }).on('show.bs.modal', function () {
+                var $this = $(this);
+                var $modal_dialog = $this.find('.modal-dialog');
+                $this.css('display', 'block');
+                //$modal_dialog.css({ 'margin-top': Math.max(0, ($(window).height() - $modal_dialog.height()) / 2) });
+            });
+        })
+        //$("#myModal").modal({
+        //    //remote: "http://www.baidu.com"
+        //    remote: "多列.html"
+        //}).on('show.bs.modal', function () {
+        //    var $this = $(this);
+        //    var $modal_dialog = $this.find('.modal-dialog');
+        //    $this.css('display', 'block');
+        //    $modal_dialog.css({ 'margin-top': Math.max(0, ($(window).height() - $modal_dialog.height()) / 2) });
+        //});
+    </script>
+</body>
+</html>

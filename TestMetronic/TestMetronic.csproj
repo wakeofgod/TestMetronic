@@ -199,6 +199,7 @@
     <Content Include="ForFunCode\下拉菜单.html" />
     <Content Include="ForFunCode\基础提示框.html" />
     <Content Include="ForFunCode\多列.html" />
+    <Content Include="ForFunCode\模态框引用外部.html" />
     <Content Include="ForFunCode\渐变.html" />
     <Content Include="ForFunCode\用户界面.html" />
     <Content Include="ForFunCode\简单动画.html" />
