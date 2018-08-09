@@ -13,40 +13,29 @@
 <body>
     <h2>模态框（Modal）插件方法</h2>
     <!-- 按钮触发模态框 -->
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        开始演示模态框
-    </button>
-    <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <button type="button" id="addBtn" class="btn btn-primary">新增用户</button>
+    <!-- 弹出模态窗口-->
+    <div class="modal fade" style="top:13%;" tabindex="-1" role="dialog" id="showModal">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true">
-                        ×
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        模态框（Modal）标题
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    按下 ESC 按钮退出。
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">
-                        关闭
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        提交更改
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+                <!-- 内容会加载到这里 -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
    <script>
-       $("#myModal").modal({
-           remote: "多列.html"
+       $("#showModal").modal({
+           backdrop: 'true',     // 点击空白关闭
+           keyboard: true,        // 按键盘esc也不会关闭
+           remote: "多列.html"   //引用的页面只放div之类，其他的head什么的全部要
+       });
+       
+       $("#addBtn").click(function(){
+           // 打开模态框
+           $("#showModal").modal({
+                   backdrop: 'static',     // 点击空白不关闭
+           keyboard: false,        // 按键盘esc也不会关闭
+           remote: '/sys/toAddUser'    // 从远程加载内容的地址
+       });
        });
    </script>
 </body>
