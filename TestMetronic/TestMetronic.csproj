@@ -197,6 +197,7 @@
     <Content Include="css\bootstrap-switch.css" />
     <Content Include="css\bootstrap-switch.js" />
     <Content Include="ForFunCode\下拉菜单.html" />
+    <Content Include="ForFunCode\图片放大.html" />
     <Content Include="ForFunCode\基础提示框.html" />
     <Content Include="ForFunCode\多列.html" />
     <Content Include="ForFunCode\模态框引用外部.html" />

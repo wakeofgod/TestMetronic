@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <META NAME="Author" CONTENT="hhshushu" />
+    <META NAME="Keywords" CONTENT="纯CSS图片放大效果" />
+    <META NAME="Description" CONTENT="纯CSS图片放大效果" />
+    <title>纯CSS图片放大效果</title>
+    <style type="text/css" title="">
+        body {
+            width: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #000;
+            color: #000;
+        }
+
+        #main-content {
+            border: 5px solid #7bc809;
+            padding: 5px;
+            background: #fff;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            padding-bottom: 300px; /*padding给图片撑开空间*/
+        }
+
+        li {
+            display: inline;
+        }
+
+            li a {
+                position: relative;
+            }
+
+                li a:hover {
+                    position: relative;
+                    border: none;
+                    z-index: 1000;
+                }
+                /*此处要有border:none属性，否则IE6下面无法显示出来，是IE6伪类的BUG*/
+                li a img {
+                    width: 100px;
+                    height: 100px;
+                    border: none;
+                    position: absolute;
+                }
+                /*使用绝对定位让图片固定从而脱离页面流*/
+                li a:hover img {
+                    position: absolute;
+                    left: -10px;
+                    top: -50px;
+                    width: 240px;
+                    height: 240px;
+                    padding: 5px;
+                    background: #fff;
+                    border: 2px solid #000;
+                    z-index: 1000;
+                }
+            /*注意这里的z-index显示设置，否则会有重叠*/
+            li#pic-01 a img {
+                top: 0;
+                left: 0;
+            }
+
+            li#pic-02 a img {
+                top: 0;
+                left: 100px;
+            }
+
+            li#pic-03 a img {
+                top: 0;
+                left: 200px;
+            }
+
+            li#pic-04 a img {
+                top: 100px;
+                left: 0;
+            }
+
+            li#pic-05 a img {
+                top: 100px;
+                left: 100px;
+            }
+
+            li#pic-06 a img {
+                top: 100px;
+                left: 200px;
+            }
+
+            li#pic-07 a img {
+                top: 200px;
+                left: 0px;
+            }
+
+            li#pic-08 a img {
+                top: 200px;
+                left: 100px;
+            }
+
+            li#pic-09 a img {
+                top: 200px;
+                left: 200px;
+            }
+        /*定位图片的排布*/
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <ul>
+            <li id="pic-01"><a href="http://bbs.blueidea.com"><img src="/Content/Images/clock.png" alt="图1" /></a></li>
+            <li id="pic-02"><a href="http://bbs.blueidea.com"><img src="/Content/Images/clock.png" alt="图2" /></a></li>
+            <li id="pic-03"><a href="http://home.blueidea.com/apps.php?do=case&ac=lists&uid=560226&picid=68256"><img src="/Content/Images/counter.png" alt="图3" /></a></li>
+            <li id="pic-04"><a href="#"><img src="#" alt="图4" /></a></li>
+            <li id="pic-05"><a href="#"><img src="#" alt="图5" /></a></li>
+            <li id="pic-06"><a href="#"><img src="#" alt="图6" /></a></li>
+            <li id="pic-07"><a href="#"><img src="#" alt="图7" /></a></li>
+            <li id="pic-08"><a href="#"><img src="#" alt="图8" /></a></li>
+            <li id="pic-09"><a href="#"><img src="#" alt="图8" /></a></li>
+        </ul>
+    </div>
+</body>
+</html>
