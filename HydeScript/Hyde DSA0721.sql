@@ -318,18 +318,22 @@ begin
 							--@MaxWeek替代上一周的[Forecast Arrears]
 							select @MaxYear=ISNULL([Actual Arrears],0),@MaxWeek=ISNULL([Forecast Arrears],0)  from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer
 							if @MaxYear!=0
-								begin
+								BEGIN
+									--@MinYear只是个中间值count
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=@WeekNum and DelivYear=@YearNum and NetArrears=1 and Customer=@Customer
+									--上一周的Actual Arrears减去count
 									select @ForecastArrears=@MaxYear-@MinYear
-									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ForecastArrears
+									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
 							else if @MaxYear=0 
-								begin
+								BEGIN
+									--@MinYear依然是中间值count
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=@WeekNum and DelivYear=@YearNum and NetArrears=1 and Customer=@Customer
+									--上一周的Forecast Arrears减去count
 									select @ForecastArrears=@MaxWeek-@MinYear
-									--取上周的Forecasted Arrears
+									--取上周的Forecasted Arrears,好像多余了，可以用@MaxWeek
 									select @MaxYear=ISNULL([Forecast Arrears],0) from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer
-									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ActualArrears
+									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
 						end
 					else
@@ -344,14 +348,14 @@ begin
 								begin
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=52 and DelivYear=@YearNum-1 and NetArrears=1 and Customer=@Customer
 									select @ForecastArrears=@MaxYear-@MinYear
-									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ForecastArrears
+									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
 							else if @MaxYear=0 
 								begin
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=52 and DelivYear=@YearNum-1 and NetArrears=1 and Customer=@Customer
 									select @ForecastArrears=@MaxWeek-@MinYear
 									select @MaxYear=ISNULL([Forecast Arrears],0) from TestFinalValue where YearNum=@YearNum-1 and WeekNum=52 and Customer=@Customer
-									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ActualArrears
+									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
 						end
 					else 
