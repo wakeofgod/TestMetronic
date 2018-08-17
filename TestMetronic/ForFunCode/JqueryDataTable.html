@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Scripts/DataTables-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Scripts/RowReorder-1.2.4/css/rowReorder.bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/RowReorder-1.2.4/js/dataTables.rowReorder.min.js"></script>
+</head>
+<body>
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>1</th>
+                <th>1</th>
+                <th>1</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>2</th>
+                <th>2</th>
+                <th>2</th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Order</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Duration</th>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        $(document).ready(function () {
+            //editor = new $.fn.dataTable.Editor({
+            //    ajax: '../php/sequence.php',
+            //    table: '#example',
+            //    fields: [{
+            //        label: 'Order:',
+            //        name: 'readingOrder',
+            //        fieldInfo: 'This field can only be edited via click and drag row reordering.'
+            //    }, {
+            //        label: 'Title:',
+            //        name: 'title'
+            //    }, {
+            //        label: 'Author:',
+            //        name: 'author'
+            //    }, {
+            //        label: 'Duration (seconds):',
+            //        name: 'duration'
+            //    }
+            //    ]
+            //});
+
+            var table = $('#example').DataTable({
+                dom: 'Bfrtip',
+                ajax: '../php/sequence.php',
+                columns: [
+                    { data: 'readingOrder', className: 'reorder' },
+                    { data: 'title' },
+                    { data: 'author' },
+                    {
+                        data: 'duration', render: function (data, type, row) {
+                            return parseInt(data / 60, 10) + 'h ' + (data % 60) + 'm';
+                        }
+                    }
+                ],
+                columnDefs: [
+                    { orderable: false, targets: [1, 2, 3] }
+                ],
+                rowReorder: {
+                    dataSrc: 'readingOrder',
+                    editor: editor
+                },
+                select: true,
+                buttons: [
+                    { extend: 'create', editor: editor },
+                    { extend: 'edit', editor: editor },
+                    { extend: 'remove', editor: editor }
+                ]
+            });
+
+            editor
+                .on('postCreate postRemove', function () {
+                    // After create or edit, a number of other rows might have been effected -
+                    // so we need to reload the table, keeping the paging in the current position
+                    table.ajax.reload(null, false);
+                })
+                .on('initCreate', function () {
+                    // Enable order for create
+                    editor.field('readingOrder').enable();
+                })
+                .on('initEdit', function () {
+                    // Disable for edit (re-ordering is performed by click and drag)
+                    editor.field('readingOrder').disable();
+                });
+        });
+    </script>
+</body>
+</html>
