@@ -4,46 +4,71 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Scripts/DataTables-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="../Scripts/RowReorder-1.2.4/css/rowReorder.bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/ColReorder-1.5.0/css/colReorder.bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../Scripts/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="../Scripts/RowReorder-1.2.4/js/dataTables.rowReorder.min.js"></script>
+    <script src="../Scripts/ColReorder-1.5.0/js/dataTables.colReorder.min.js"></script>
 </head>
 <body>
-    <table id="example" class="display" cellspacing="0" width="100%">
+    <table id="example" class="display" cellspacing="0">
         <thead>
             <tr>
                 <th>Order</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Duration</th>
+                <th><input id="columnAdd" type="text" placeholder="New Column" style="border:hidden;" /></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>2</th>
-                <th>2</th>
-                <th>2</th>
-            </tr>
+            <!--<tr><td>1</td><td>历史1</td><td>张三1</td><td>武汉1</td></tr>
+            <tr> <td>2</td><td>历史2</td><td>张三2</td><td>武汉2</td></tr>
+            <tr> <td>3</td><td>历史3</td><td>张三3</td><td>武汉3</td></tr>
+            <tr> <td>4</td><td>历史4</td><td>张三4</td><td>武汉4</td></tr>
+            <tr> <td>5</td><td>历史5</td><td>张三5</td><td>武汉5</td></tr>
+            <tr> <td>6</td><td>历史6</td><td>张三6</td><td>武汉6</td></tr>
+            <tr> <td>7</td><td>历史7</td><td>张三7</td><td>武汉7</td></tr>
+            <tr> <td>8</td><td>历史8</td><td>张三8</td><td>武汉8</td></tr>
+            <tr> <td>9</td><td>历史9</td><td>张三9</td><td>武汉9</td></tr>
+            <tr> <td>10</td><td>历史10</td><td>张三10</td><td>武汉10</td></tr>
+            <tr> <td>11</td><td>历史11</td><td>张三11</td><td>武汉11</td></tr>
+            <tr> <td>12</td><td>历史12</td><td>张三12</td><td>武汉12</td></tr>
+            <tr> <td>13</td><td>历史13</td><td>张三13</td><td>武汉13</td></tr>-->
+            <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>5</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>6</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>7</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>8</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>9</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>10</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>11</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>12</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>13</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="tdAdd" type="text" placeholder="New Row" style="border:hidden;" /></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         </tbody>
-        <tfoot>
+        <!--<tfoot>
             <tr>
-                <th>Order</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Duration</th>
+                <td>Order</td>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Duration</td>
             </tr>
-        </tfoot>
+        </tfoot>-->
     </table>
+    <button id="btnTest" class="btn btn-primary">测试</button>
+    <button id="btnAddRow" class="btn btn-primary">添加行</button>
+    <button id="btnAddColumn" class="btn btn-primary">添加列</button>
     <script>
+        var rowCount = 0;
+        var columnCount = 0;
+        var thList = document.getElementsByTagName("th");
         $(document).ready(function () {
             //editor = new $.fn.dataTable.Editor({
             //    ajax: '../php/sequence.php',
@@ -65,48 +90,120 @@
             //    ]
             //});
 
-            var table = $('#example').DataTable({
-                dom: 'Bfrtip',
-                ajax: '../php/sequence.php',
-                columns: [
-                    { data: 'readingOrder', className: 'reorder' },
-                    { data: 'title' },
-                    { data: 'author' },
-                    {
-                        data: 'duration', render: function (data, type, row) {
-                            return parseInt(data / 60, 10) + 'h ' + (data % 60) + 'm';
-                        }
-                    }
-                ],
-                columnDefs: [
-                    { orderable: false, targets: [1, 2, 3] }
-                ],
-                rowReorder: {
-                    dataSrc: 'readingOrder',
-                    editor: editor
-                },
-                select: true,
-                buttons: [
-                    { extend: 'create', editor: editor },
-                    { extend: 'edit', editor: editor },
-                    { extend: 'remove', editor: editor }
-                ]
-            });
+            //var table = $('#example').DataTable({
+            //    dom: 'Bfrtip',
+            //    ajax: '../php/sequence.php',
+            //    columns: [
+            //        { data: 'readingOrder', className: 'reorder' },
+            //        { data: 'title' },
+            //        { data: 'author' },
+            //        {
+            //            data: 'duration', render: function (data, type, row) {
+            //                return parseInt(data / 60, 10) + 'h ' + (data % 60) + 'm';
+            //            }
+            //        }
+            //    ],
+            //    columnDefs: [
+            //        { orderable: false, targets: [1, 2, 3] }
+            //    ],
+            //    rowReorder: {
+            //        dataSrc: 'readingOrder',
+            //        //editor: editor
+            //    },
+            //    select: true,
+            //    buttons: [
+            //        { extend: 'create', editor: editor },
+            //        { extend: 'edit', editor: editor },
+            //        { extend: 'remove', editor: editor }
+            //    ]
+            //});
 
-            editor
-                .on('postCreate postRemove', function () {
-                    // After create or edit, a number of other rows might have been effected -
-                    // so we need to reload the table, keeping the paging in the current position
-                    table.ajax.reload(null, false);
-                })
-                .on('initCreate', function () {
-                    // Enable order for create
-                    editor.field('readingOrder').enable();
-                })
-                .on('initEdit', function () {
-                    // Disable for edit (re-ordering is performed by click and drag)
-                    editor.field('readingOrder').disable();
-                });
+            //editor
+            //    .on('postCreate postRemove', function () {
+            //        // After create or edit, a number of other rows might have been effected -
+            //        // so we need to reload the table, keeping the paging in the current position
+            //        table.ajax.reload(null, false);
+            //    })
+            //    .on('initCreate', function () {
+            //        // Enable order for create
+            //        editor.field('readingOrder').enable();
+            //    })
+            //    .on('initEdit', function () {
+            //        // Disable for edit (re-ordering is performed by click and drag)
+            //        editor.field('readingOrder').disable();
+            //    });
+            var table = $('#example').DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                ordering: false,
+                rowReorder: true,
+                colReorder: true
+            });
+            //table.column(0).visible(false);
+            //var idx = table.column(1).index('visible');
+            //alert(idx); // will show 0
+        });
+        function GetColumn() {
+            var columnList = new Array();
+            for (var i = 0; i <thList.length-1; i++) {
+                var column = new Object();
+                column.Index = $(thList[i]).attr("data-column-index");
+                column.Name = $(thList[i])[0].innerHTML;
+                columnList.push(column);
+            }
+            //获取表头名字和序号
+            for (var i = 0; i < columnList.length; i++) {
+                alert(columnList[i].Index + " " + columnList[i].Name);
+            }
+        }
+        $("#btnTest").on('click', function () {
+            GetColumn();
+            //怎么获取第一列
+            //$("#example tr td").each(function () {
+            //    alert(this.innerHTML);
+            //});
+        });
+        //$("#tdAdd").on('blur', function () {
+        //    rowCount++;
+        //    var rowName = $("#tdAdd").val();
+        //    if (rowName != "") {
+        //        var html = '';
+        //        html += ('<tr myId="' + rowCount + '">');
+        //        html += ('<td>' + rowName + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('<td>' + rowCount + '</td>');
+        //        html += ('</tr>');
+        //        $("tbody tr:last").before(html);
+        //        $("#tdAdd").val('');
+        //    }
+        //});
+        //$("#columnAdd").on('blur', function () {
+        //    var columnName = $("#columnAdd").val();
+        //    if (columnName != "") {
+        //        $(this).parent().before("<td>" + columnName + "</td");
+        //        $("#SignFrame>tbody tr:not(:last)").append("<td>" + columnName + "</td>");
+        //        $("#columnAdd").val('');
+        //    }
+        //});
+        $("#btnAddRow").on('click', function () {
+
+        });
+        $("#btnAddColumn").on('click', function () {         
+            columnCount = thList.length;
+            columnCount++;
+            debugger;
+            //alert(columnCount);
+            var columnName = $("#columnAdd").val();
+            if (columnName!="") {
+                $("#columnAdd").parent().before("<th>" + columnName + "</th>");
+                $("#example>tbody tr:not(:last)").append("<td>" + columnCount + "</td>");
+                $("#columnAdd").val('');
+            }
         });
     </script>
 </body>

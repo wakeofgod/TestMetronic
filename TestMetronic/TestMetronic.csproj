@@ -196,6 +196,7 @@
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\jquery-multi-select\LICENSE.txt" />
     <Content Include="css\bootstrap-switch.css" />
     <Content Include="css\bootstrap-switch.js" />
+    <Content Include="ForFunCode\boot的table.html" />
     <Content Include="ForFunCode\JqueryDataTable.html" />
     <Content Include="ForFunCode\下拉菜单.html" />
     <Content Include="ForFunCode\图片放大.html" />

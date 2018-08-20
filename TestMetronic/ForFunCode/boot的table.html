@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div>
+        <table class="table table-hover bordered" id="SignFrame">
+            <thead>
+                <tr id="trHeader">
+                    <th  bgcolor="#96E0E2">序号</th>
+                    <th  bgcolor="#96E0E2">用户姓名</th>
+                    <th  bgcolor="#96E0E2">电子邮箱</th>
+                    <th  bgcolor="#96E0E2">固定电话</th>
+                    <th  bgcolor="#96E0E2">移动手机</th>
+                    <th  bgcolor="#96E0E2">公司名称</th>
+                    <th  align="center" bgcolor="#96E0E2"><input id="columnAdd" type="text" placeholder="New Column" style="border:hidden;" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><input id="tdAdd" type="text" placeholder="New Row" style="border:hidden;" /></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>           
+        </table>
+    </div>
+    <script language="javascript">
+        var rowCount = 0;
+        var columnCount = 4;
+        $(document).ready(function () {
+            var thList = document.getElementsByTagName("th");
+            columnCount = thList.length;
+        })
+        $("#tdAdd").on('blur', function () {
+            rowCount++;
+            var rowName = $("#tdAdd").val();
+            if (rowName != "") {
+                var html = '';
+                html += ('<tr myId="' + rowCount + '">');
+                for (var i = 0; i < columnCount; i++) {
+                    html += ('<td>' + rowCount + '</td>')
+                }
+                html += ('</tr>');
+                $("tbody tr:last").before(html);
+                $("#tdAdd").val('');
+            }
+        });
+        $("#columnAdd").on('blur', function () {
+            columnCount++;
+            var columnName = $("#columnAdd").val();
+            if (columnName != "") {
+                $(this).parent().before("<td>" + columnName + "</td");
+                $("#SignFrame>tbody tr:not(:last)").append("<td>" + columnCount + "</td>");
+                $("#columnAdd").val('');
+            }
+        });
+    </script>
+</body>
+</html>
