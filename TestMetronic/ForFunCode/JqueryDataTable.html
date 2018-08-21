@@ -17,10 +17,11 @@
     <table id="example" class="display" cellspacing="0">
         <thead>
             <tr>
-                <th>Order</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Duration</th>
+                <th></th>
+                <th>ColumnA</th>
+                <th>ColumnB</th>
+                <th>ColumnC</th>
+                <th>ColumnD</th>
                 <th><input id="columnAdd" type="text" placeholder="New Column" style="border:hidden;" /></th>
             </tr>
         </thead>
@@ -38,19 +39,19 @@
             <tr> <td>11</td><td>历史11</td><td>张三11</td><td>武汉11</td></tr>
             <tr> <td>12</td><td>历史12</td><td>张三12</td><td>武汉12</td></tr>
             <tr> <td>13</td><td>历史13</td><td>张三13</td><td>武汉13</td></tr>-->
-            <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>5</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>6</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>7</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>8</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>9</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>10</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>11</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>12</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>13</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>10</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>11</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>12</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>13</td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td><input id="tdAdd" type="text" placeholder="New Row" style="border:hidden;" /></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         </tbody>
         <!--<tfoot>
@@ -69,80 +70,14 @@
         var rowCount = 0;
         var columnCount = 0;
         var thList = document.getElementsByTagName("th");
-        $(document).ready(function () {
-            //editor = new $.fn.dataTable.Editor({
-            //    ajax: '../php/sequence.php',
-            //    table: '#example',
-            //    fields: [{
-            //        label: 'Order:',
-            //        name: 'readingOrder',
-            //        fieldInfo: 'This field can only be edited via click and drag row reordering.'
-            //    }, {
-            //        label: 'Title:',
-            //        name: 'title'
-            //    }, {
-            //        label: 'Author:',
-            //        name: 'author'
-            //    }, {
-            //        label: 'Duration (seconds):',
-            //        name: 'duration'
-            //    }
-            //    ]
-            //});
-
-            //var table = $('#example').DataTable({
-            //    dom: 'Bfrtip',
-            //    ajax: '../php/sequence.php',
-            //    columns: [
-            //        { data: 'readingOrder', className: 'reorder' },
-            //        { data: 'title' },
-            //        { data: 'author' },
-            //        {
-            //            data: 'duration', render: function (data, type, row) {
-            //                return parseInt(data / 60, 10) + 'h ' + (data % 60) + 'm';
-            //            }
-            //        }
-            //    ],
-            //    columnDefs: [
-            //        { orderable: false, targets: [1, 2, 3] }
-            //    ],
-            //    rowReorder: {
-            //        dataSrc: 'readingOrder',
-            //        //editor: editor
-            //    },
-            //    select: true,
-            //    buttons: [
-            //        { extend: 'create', editor: editor },
-            //        { extend: 'edit', editor: editor },
-            //        { extend: 'remove', editor: editor }
-            //    ]
-            //});
-
-            //editor
-            //    .on('postCreate postRemove', function () {
-            //        // After create or edit, a number of other rows might have been effected -
-            //        // so we need to reload the table, keeping the paging in the current position
-            //        table.ajax.reload(null, false);
-            //    })
-            //    .on('initCreate', function () {
-            //        // Enable order for create
-            //        editor.field('readingOrder').enable();
-            //    })
-            //    .on('initEdit', function () {
-            //        // Disable for edit (re-ordering is performed by click and drag)
-            //        editor.field('readingOrder').disable();
-            //    });
-            var table = $('#example').DataTable({
-                paging: false,
-                searching: false,
-                info: false,
-                ordering: false,
-                rowReorder: true,
-                colReorder: true
-            });
-            //table.column(0).visible(false);
-            //var idx = table.column(1).index('visible');
-            //alert(idx); // will show 0
+        var trList = document.getElementsByTagName("tr");
+        var table = $('#example').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            ordering: false,
+            rowReorder: true,
+            colReorder: true
         });
         function GetColumn() {
             var columnList = new Array();
@@ -190,19 +125,48 @@
         //        $("#columnAdd").val('');
         //    }
         //});
+        /* 追加的行和列不能用插件交换顺序??*/
         $("#btnAddRow").on('click', function () {
+            rowCount = trList.length-2;
+            columnCount = thList.length;
+            rowCount++;
+            //var rowName = $("#tdAdd").val();
+            //使用html追加
+                //var html = '';
+                //html += ('<tr myId="' + rowCount + '">');
+                //for (var i = 0; i < columnCount; i++) {
+                //    html += ('<td>' + rowCount + '</td>')
+                //}
+                //html += ('</tr>');
+            //$("#example>tbody tr:last").before(html);
 
+            //或者替换掉最后一行的文字，再追加新的一行到最后一行
+            $("#example>tbody tr:last td:first").html(rowCount);
+            var newRow = new Array();
+            newRow.push(rowCount + 1);
+            for (var i = 1; i < columnCount; i++) {
+                newRow.push('');
+            }
+            table.row.add(newRow).draw();
+            $("#example>tbody tr:last td:first").html("<input id='tdAdd' type='text' placeholder='New Row' style='border:hidden;' />");
+                //$("#tdAdd").val('');
+            //使用draw新增的行会丢失，使用table.ajax.reload()会报错
+               // table.draw();
         });
         $("#btnAddColumn").on('click', function () {         
-            columnCount = thList.length;
+            columnCount = thList.length-2;
             columnCount++;
-            debugger;
+            //有添加行，但是没有添加列的方法
+            //table.column.add().draw();
             //alert(columnCount);
             var columnName = $("#columnAdd").val();
             if (columnName!="") {
-                $("#columnAdd").parent().before("<th>" + columnName + "</th>");
+                $("#columnAdd").parent().before("<th class='sorting_disabled' rowspan='1' colspan='1' data-column-index='"+ columnCount+ "' style='width: 150px;'>" + columnName + "</th>");
                 $("#example>tbody tr:not(:last)").append("<td>" + columnCount + "</td>");
                 $("#columnAdd").val('');
+                //table.ajax.reload();
+                debugger;
+                 table.draw();
             }
         });
     </script>

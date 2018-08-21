@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/DataTables-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Scripts/RowReorder-1.2.4/css/rowReorder.bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/ColReorder-1.5.0/css/colReorder.bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/Icons/icon.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/RowReorder-1.2.4/js/dataTables.rowReorder.min.js"></script>
+    <script src="../Scripts/ColReorder-1.5.0/js/dataTables.colReorder.min.js"></script>
+    <script src="../Scripts/FixedColumns-3.2.5/js/dataTables.fixedColumns.min.js"></script>
+    <style>
+        .rowName{
+            border:hidden;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table id="example" class="display" cellspacing="0">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ColumnA</th>
+                    <th>ColumnB</th>
+                    <th>ColumnC</th>
+                    <th>ColumnD</th>
+                    <th><input id="columnAdd" type="text" placeholder="New Column" style="border:hidden;" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="1"  value="1"/><span name="spanRow"style="display:inline-block;width:80px;">1</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="2" value="2" /><span name="spanRow"style="display:inline-block;width:80px;">2</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="3" value="3" /><span name="spanRow"style="display:inline-block;width:80px;">3</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="4" value="4" /><span name="spanRow"style="display:inline-block;width:80px;">4</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="5" value="5" /><span name="spanRow"style="display:inline-block;width:80px;">5</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="6" value="6" /><span name="spanRow"style="display:inline-block;width:80px;">6</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="7" value="7" /><span name="spanRow"style="display:inline-block;width:80px;">7</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="8" value="8" /><span name="spanRow"style="display:inline-block;width:80px;">8</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="9" value="9" /><span name="spanRow"style="display:inline-block;width:80px;">9</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="10" value="10" /><span name="spanRow"style="display:inline-block;width:80px;">10</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="11" value="11" /><span name="spanRow"style="display:inline-block;width:80px;">11</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="12" value="12" /><span name="spanRow"style="display:inline-block;width:80px;">12</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input type="text" class="rowName" name="RowName" myRow="13" value="13" /><span name="spanRow"style="display:inline-block;width:80px;">13</span><i class="icon icon-icon27" style="display:none;margin-left:2px;color:red;cursor:pointer;"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><input id="tdAdd" type="text" placeholder="New Row" /></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var table = $('#example').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            ordering: false,
+            //rowReorder: true,
+            colReorder: true,
+            //fixedHeader: true,
+            //没什么卵用，只是表格太宽滚动的时候显示左右两列
+            fixedColumns: {
+                leftColumns: 1,
+                rightColumns: 1
+            }
+        });
+        //怎么选中每行第一列
+        //$("tr td").eq(0).dblclick(function () {
+        //    alert(123);
+        //});
+        $("[name='spanRow']").dblclick(function () {
+            this.style.display = "none";
+            $(this).prev()[0].style.display = "inline-block";
+            $(this).next()[0].style.display = "inline-block";
+        });
+        $("tr td i").on('click', function () {
+           // $(this).parent().parent().remove();
+            debugger;
+            table.row($(this).parents('tr') ).remove().draw();
+            //table.draw();
+        });
+        $("tr td").on('keydown', '[name="RowName"]', function (e) {
+            if (e.which == 13) {
+                alert(123);
+            }
+        });
+    </script>
+</body>
+</html>
