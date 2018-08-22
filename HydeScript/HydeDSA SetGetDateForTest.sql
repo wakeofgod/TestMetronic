@@ -1,77 +1,11 @@
 -- =============================================
 -- Author:		JL
--- Create date: 2018-7-21
+-- Create date: 2018-08-01
 -- Description:	use three tables calculate the final value
+-- Add a variable to determine whether to value the current date for comparison
+--This is just a test script, the formal version takes the getdate directly
 -- =============================================
---===============================================
---Dynamic table names and column names don't know how to deal with this, so I'm going to do this locally fixed
---  in local database
---  sales orders :reportType 241, datasource:dbo.[8e133ecd-5692-4a42-86b8-6e338f76f08d]  column SD Doc. is Field2061
---																						 column customer is field 2063
---  WIP Sales    :reportType 1242 datasource:dbo.[eaa78e26-d387-4dfa-b71e-be4690feb65a]  column Sales Doc. is Field3067
---																						 column Sales O/S Sales Order Qty is Field3090
---																						 column First Date is Field3077
---																						 column Order Quantity is Field3083
---																						 column Service Render Date is Field3078
---  New Delivery Report:reportType；1395 datasource:[239e008b-1b35-46df-a398-42af1c7fe8d7] column Delivery Date is Field4558
---																						 column Delivery quantity is Field4557
---																						 column Sales Order is  Field4559
 /****** Object:  StoredProcedure [dbo].[pro_CalculateFinal]    Script Date: 2018/3/12 16:51:43 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-if  exists(select * from sysobjects where id=OBJECT_ID('TestFinalValue') and [type]='U')
-drop table TestFinalValue
-go
-		create table TestFinalValue
-		(
-			Id int identity(1,1) primary key not null,
-			"Week/Year" date not null,
-			Customer				nvarchar(100),
-			YearNum				  int,
-			WeekNum				  int,
-			"Contracted Delivery" int ,
-			"Actual Delivery Lines" int,
-			"Arrears Forecasted(Lines)" int,
-			"Arrears Delivered(Lines)" int,
-			"Rescheduled Dates"   int,
-			"Forecast Arrears"    int,
-			"Actual Arrears"	  int,
-			"Held Items"		  int,
-			"DSA(contract)"       float(2),
-			"DSA(Arrears/Forecasted)" float(2),
-			"Target DSA"		float(2),
-			"Projected Arrears" float(2),
-			"DSA(Contract/C)"   float(2),
-			"DSA(Arrears/Forecasted C)" float(2)
-		)
-go
-if exists(select * from sysobjects where id=OBJECT_ID('TestMiddleValue')and [type]='U')
-drop table TestMiddleValue
-go
-create table TestMiddleValue
-(
-id   int identity(1,1) primary key not null,
-		SDDoc nvarchar(100),
-		Customer nvarchar(100),
-		CntrctWeekNum int,
-		CntrctYear    int,
-		OSSOQt		  nvarchar(100),
-		WeekDelivered int,
-		QtyDeliv      nvarchar(100),
-		SOQty	      nvarchar(100),
-		Delivered     nvarchar(100),		
-		DelivWeekNum  int,
-		DelivYear     int,
-		HELD		  int,
-		GROSSARREARS  int,
-		NetArrears    int,
-		Rescheduled   nvarchar(100),
-		FirstDate     date ,
-		ServiceRenderDate date    
-)
-go
 if  exists(select * from sys.objects where name='pro_CalculateFinal ')
 drop procedure pro_CalculateFinal
 go
@@ -122,7 +56,8 @@ begin
 			@DSAcontractC						float(2),		--Final Values 7月21号新增需求
 			@DSAArrearsForecastedC				float(2),		--Final Values 7月21号新增需求
 			@TotalContractedDelivery			int,			--分母，按时间统计ContractedDelivery的总数
-			@TotalArrearsForecastedLines		int				--分母，按时间统计ArrearsForecastedLines的总数
+			@TotalArrearsForecastedLines		int,				--分母，按时间统计ArrearsForecastedLines的总数
+			@SetGetDate							datetime
 	create table #tmp
 	(
 		id   int identity(1,1) primary key not null,
@@ -147,6 +82,14 @@ begin
 	truncate table TestMiddleValue
     truncate table TestFinalValue
 	set datefirst 1
+	if @inputDate is null
+		begin
+			select @SetGetDate=GETDATE()
+		end
+	else
+		begin
+			select @SetGetDate=@inputDate
+		end
    declare Cur_Middle cursor
    for select ID, Field2061,Field2063 from [dbo].[8e133ecd-5692-4a42-86b8-6e338f76f08d] 
    open Cur_Middle
@@ -197,14 +140,14 @@ begin
 					select @Rescheduled='No Change'
 			if @Delivered is null
 				begin
-					if DATEDIFF(DAY,@ContractDelivDate,GETDATE())>0
+					if DATEDIFF(DAY,@ContractDelivDate,@SetGetDate)>0
 						select @GROSSARREARS=1
 					else
 						select @GROSSARREARS=0
 				end
 			else if @Delivered='Part Delivered'
 				begin
-					if DATEDIFF(DAY,@ContractDelivDate,GETDATE())>0
+					if DATEDIFF(DAY,@ContractDelivDate,@SetGetDate)>0
 						select @GROSSARREARS=1
 					else
 						select @GROSSARREARS=0
@@ -314,28 +257,21 @@ begin
 					if exists( select * from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1)
 						begin
 							--不想另外建变量，用现成的,@MaxYear,@MinYear这里不是年了
-							--@MaxYear替代上一周的Actual Arrears 
-							--@MaxWeek替代上一周的[Forecast Arrears]
-							select @MaxYear=ISNULL([Actual Arrears],0),@MaxWeek=ISNULL([Forecast Arrears],0)  from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer							
+							select @MaxYear=ISNULL([Actual Arrears],0),@MaxWeek=ISNULL([Forecast Arrears],0)  from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer
 							if @MaxYear!=0
-								BEGIN
-									--@MinYear只是个中间值count
+								begin
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=@WeekNum and DelivYear=@YearNum and NetArrears=1 and Customer=@Customer
-									--上一周的Actual Arrears减去count
 									select @ForecastArrears=@MaxYear-@MinYear
 									--select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
 							else if @MaxYear=0 
-								BEGIN
-									--@MinYear依然是中间值count
+								begin
 									select @MinYear=COUNT(*) from #tmp where DelivWeekNum=@WeekNum and DelivYear=@YearNum and NetArrears=1 and Customer=@Customer
-									--上一周的Forecast Arrears减去count
 									select @ForecastArrears=@MaxWeek-@MinYear
-									--取上周的Forecasted Arrears,好像多余了，可以用@MaxWeek
+									--取上周的Forecasted Arrears
 									select @MaxYear=ISNULL([Forecast Arrears],0) from TestFinalValue where YearNum=@YearNum and WeekNum=@WeekNum-1 and Customer=@Customer
 									--select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
-							--用本周的ActualArrears来判断
 							if (@ActualArrears is not null and @ActualArrears!=0)
 								begin
 									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
@@ -366,7 +302,6 @@ begin
 									select @MaxYear=ISNULL([Forecast Arrears],0) from TestFinalValue where YearNum=@YearNum-1 and WeekNum=52 and Customer=@Customer
 									--select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
 								end
-							--用本周的ActualArrears来判断
 							if (@ActualArrears is not null and @ActualArrears!=0)
 								begin
 									select @ProjectedArrears=@MaxYear+@RescheduledDates-@ArrearsForecastedLines
