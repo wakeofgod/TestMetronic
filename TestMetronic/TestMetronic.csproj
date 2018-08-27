@@ -212,6 +212,7 @@
     <Content Include="FormLayOut.html" />
     <Content Include="Html5练习\地理定位.html" />
     <Content Include="Html5练习\拖放.html" />
+    <Content Include="Html5练习\拖放2.html" />
     <Content Include="LayOut2.html" />
     <Content Include="LayOut3.html" />
     <Content Include="LayOut4.html" />

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div>
+        <table class="table table-hover bordered" id="SignFrame">
+            <thead>
+                <tr id="trHeader">
+                    <th>序号</th>
+                    <th>用户姓名</th>
+                    <th>电子邮箱</th>
+                    <th>固定电话</th>
+                    <th>移动手机</th>
+                    <th>公司名称</th>
+                    <th align="center"><input id="columnAdd" type="text" placeholder="New Column" style="border:hidden;" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--<tr><td ><p name="dragTd" id="1_p" myid="1" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">张三</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="2_p" myid="2" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">李四</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="3_p" myid="3" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">王五</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="4_p" myid="4" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">赵六</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="5_p" myid="5" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">钱七</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>-->
+                <tr><td ><p name="dragTd" id="1_p" myid="1" draggable="true" >张三</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="2_p" myid="2" draggable="true" >李四</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="3_p" myid="3" draggable="true" >王五</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="4_p" myid="4" draggable="true" >赵六</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><p name="dragTd" id="5_p" myid="5" draggable="true" >钱七</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td ><input id="tdAdd" type="text" placeholder="New Row" style="border:hidden;" /></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        //$("[name='dragTd']").ondragover(function (event) {
+        //    event.preventDefault();
+        //}).ondragstart(function (event) {
+        //    alert(123);
+        //});
+        var fromId = "";
+        var toId = "";
+        var fromValue = "";
+        var toValue = "";
+        var fromText = "";
+        var toText = "";
+                    //document的方法
+                    //function allowDrop(ev) {
+                    //    ev.preventDefault();
+                    //}
+                    //function drag(event) {
+                    //    //alert(event.target.innerHTML);
+                    //    fromId = $(event.target).attr("id");
+                    //    //fromValue = $(event.target).attr("myid");
+                    //    fromText = event.target.innerHTML;
+                    //}
+                    ////只交换内容，id不换
+                    //function drop(event) {           
+                    //    toId = $(event.target).attr("id");
+                    //    //toValue = $(event.target).attr("myid");
+                    //    toText = event.target.innerHTML;
+                    //    $("#" + toId ).html(fromText);
+                    //    //$("#" + toId + "_p").attr("myid", fromValue);
+                    //    $("#" + fromId ).html(toText);
+                    //    //$("#" + fromId + "_p").attr("myid", toValue);;
+        //}
+        //$("[name='dragTd']").on('click', function () {
+        //    alert(123);
+        //});
+        //$("[name='dragTd']").ondragover = function (event) {
+        //    event.preventDefault();
+        //};
+        //$("[name='dragTd']").ondragstart = function (event) {
+        //    debugger;
+        //    alert(123);
+        //};
+        document.ondragover = function (event) {
+            event.preventDefault();
+        }
+        document.ondragstart = function (event) {
+            alert(123);
+        }
+    </script>
+</body>
+</html>
