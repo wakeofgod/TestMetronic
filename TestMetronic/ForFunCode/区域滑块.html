@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Scripts/ion.rangeSlider-2.2.0/css/normalize.css" rel="stylesheet" />
+    <link href="../Scripts/ion.rangeSlider-2.2.0/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="../Scripts/ion.rangeSlider-2.2.0/css/ion.rangeSlider.skinHTML5.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/ion.rangeSlider-2.2.0/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+    <style>
+        body {
+            margin: 40px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        .range-slider {
+            position: relative;
+            height: 80px;
+        }
+        .extra-controls {
+            position: relative;
+            border-top: 3px solid #000;
+            padding: 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="range-slider">
+        <input type="text" class="js-range-slider" value="" />
+    </div>
+    <div class="extra-controls">
+        Placeholder for some buttons to change slider behavior
+        <button id="btnReset">重置</button>
+    </div>
+    <script>
+       // var slider = $(".js-range-slider").data("ionRangeSlider");
+        $(".js-range-slider").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: 0,
+            max: 1000,
+            from: 200,
+            to: 800,
+            prefix: "$",
+            onStart: function (data) {
+                //第一次加载时触发
+                //debugger;
+                //console.log(data)
+            },
+            onChange: function (data) {
+                //debugger;
+                //console.log(data)
+            },
+            onFinish: function (data) {
+                //数值变化结束时（滑动结束时）触发
+                //alert(data.from);
+                alert(data.to);
+                //console.log(data)
+            },
+            onUpdate: function (data) {
+                //console.log(data)
+            }
+        });
+        $("#btnReset").on('click', function () {
+            var slider = $(".js-range-slider").data("ionRangeSlider");
+            //slider.update({
+            //    type: "double",
+            //    grid: true,
+            //    min: 0,
+            //    max: 1000,
+            //    from: 200,
+            //    to: 800,
+            //    prefix: "$",
+            //});
+            slider.reset();
+        });
+    </script>
+</body>
+</html>
