@@ -191,6 +191,8 @@ begin
 					select @Delivered=null		
 			else if CONVERT(int, @QtyDeliv)>=CONVERT(int, @SOQty) and @WeekDelivered!=-1
 					select @Delivered='Delivered'
+            ELSE IF @WeekDelivered!=-1 AND (@SOQty IS NULL OR @SOQty='0')
+					select @Delivered='Delivered'
 			if @ServiceRenderDate>@ContractDelivDate
 					select @Rescheduled='Rescheduled'
 			else 
@@ -215,6 +217,8 @@ begin
 				select @NetArrears=0
 			else 
 				select @NetArrears=@GROSSARREARS-@HELD
+			IF @SOQty IS NULL
+				SELECT @SOQty=0
             if @FirstDate!=''
 				begin
 					insert into #tmp(SDDoc,CntrctWeekNum,CntrctYear,OSSOQt,WeekDelivered,QtyDeliv,SOQty,Delivered,DelivWeekNum,DelivYear,HELD,GROSSARREARS,NetArrears,Rescheduled,FirstDate,ServiceRenderDate,Customer)
