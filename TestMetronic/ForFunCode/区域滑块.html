@@ -35,36 +35,38 @@
         <button id="btnReset">重置</button>
     </div>
     <script>
+        var slider;
+        //执行顺序，必须初始化插件后才能把插件保存为变量,注意作用域
        // var slider = $(".js-range-slider").data("ionRangeSlider");
-        $(".js-range-slider").ionRangeSlider({
-            type: "double",
-            grid: true,
-            min: 0,
-            max: 1000,
-            from: 200,
-            to: 800,
-            prefix: "$",
-            onStart: function (data) {
-                //第一次加载时触发
-                //debugger;
-                //console.log(data)
-            },
-            onChange: function (data) {
-                //debugger;
-                //console.log(data)
-            },
-            onFinish: function (data) {
-                //数值变化结束时（滑动结束时）触发
-                //alert(data.from);
-                alert(data.to);
-                //console.log(data)
-            },
-            onUpdate: function (data) {
-                //console.log(data)
-            }
-        });
+        //$(".js-range-slider").ionRangeSlider({
+        //    type: "double",
+        //    grid: true,
+        //    min: 0,
+        //    max: 1000,
+        //    from: 200,
+        //    to: 800,
+        //    prefix: "$",
+        //    onStart: function (data) {
+        //        //第一次加载时触发
+        //        //debugger;
+        //        //console.log(data)
+        //    },
+        //    onChange: function (data) {
+        //        //debugger;
+        //        //console.log(data)
+        //    },
+        //    onFinish: function (data) {
+        //        //数值变化结束时（滑动结束时）触发
+        //        //alert(data.from);
+        //        //alert(data.to);
+        //        //console.log(data)
+        //    },
+        //    onUpdate: function (data) {
+        //        //console.log(data)
+        //    }
+        //});
+        //var slider = $(".js-range-slider").data("ionRangeSlider");
         $("#btnReset").on('click', function () {
-            var slider = $(".js-range-slider").data("ionRangeSlider");
             //slider.update({
             //    type: "double",
             //    grid: true,
@@ -75,6 +77,36 @@
             //    prefix: "$",
             //});
             slider.reset();
+        });
+        $(document).ready(function () {
+            $(".js-range-slider").ionRangeSlider({
+                type: "double",
+                grid: true,
+                min: 0,
+                max: 1000,
+                from: 200,
+                to: 800,
+                prefix: "$",
+                onStart: function (data) {
+                    //第一次加载时触发
+                    //debugger;
+                    //console.log(data)
+                },
+                onChange: function (data) {
+                    //debugger;
+                    //console.log(data)
+                },
+                onFinish: function (data) {
+                    //数值变化结束时（滑动结束时）触发
+                    //alert(data.from);
+                    //alert(data.to);
+                    //console.log(data)
+                },
+                onUpdate: function (data) {
+                    //console.log(data)
+                }
+            });
+            slider = $(".js-range-slider").data("ionRangeSlider");
         });
     </script>
 </body>
