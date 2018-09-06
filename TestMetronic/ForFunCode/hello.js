@@ -92,3 +92,4 @@ var Shape3D = (function (_super) {
 var cube = new Shape3D("cube", 30, 30, 30);
 console.log(cube.shoutout());
 console.log(cube.superShout());
+//# sourceMappingURL=hello.js.map
