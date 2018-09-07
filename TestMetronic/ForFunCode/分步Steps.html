@@ -23,6 +23,14 @@
     <link href="../Content/Template/metronic-4.5.6/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color">
     <link href="../Content/Template/metronic-4.5.6/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css">
     <!-- END THEME LAYOUT STYLES -->
+    <style>
+.mt-element-step .step-line .active .mt-step-title:after, .mt-element-step .step-line .active .mt-step-title:before {
+    background-color: #5ea8f8;
+}
+.mt-element-step .step-line .done .mt-step-title:after, .mt-element-step .step-line .done .mt-step-title:before {
+    background-color: #4dd25b;
+}
+    </style>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <div class="page-wrapper">
@@ -35,28 +43,17 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green bold uppercase">Numbered Icons</span>
-                                    </div>
-                                </div>
                                 <div class="portlet-body">
                                     <div class="mt-element-step">
                                         <div class="row step-line">
-                                            <div class="mt-step-desc">
-                                                <div class="font-dark bold uppercase">FontAwesome Icons</div>
-                                                <div class="caption-desc font-grey-cascade"> Icons in place of numbers for steps. Replace the <pre class="mt-code">.mt-step-number</pre> text with the icon of your choice. </div>
-                                                <br />
-                                            </div>
-                                            <div class="col-md-4 mt-step-col first done">
-                                                <div class="mt-step-number bg-white">
+                                            <div class="col-md-4 mt-step-col first active">
+                                                <div class="mt-step-number bg-white" style="color:#5ea8f8 !important;border-color:#5ea8f8 !important;">
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </div>
-                                                <div class="mt-step-title uppercase font-grey-cascade">Purchase</div>
-                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#5ea8f8 !important;">Purchase</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#5ea8f8 !important;">Purchasing the item</div>
                                             </div>
-                                            <div class="col-md-4 mt-step-col active">
+                                            <div class="col-md-4 mt-step-col ">
                                                 <div class="mt-step-number bg-white">
                                                     <i class="fa fa-cc-visa"></i>
                                                 </div>
@@ -69,6 +66,56 @@
                                                 </div>
                                                 <div class="mt-step-title uppercase font-grey-cascade">Deploy</div>
                                                 <div class="mt-step-content font-grey-cascade">Receive item integration</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-element-step">
+                                        <div class="row step-line">
+                                            <div class="col-md-4 mt-step-col first done">
+                                                <div class="mt-step-number bg-white" style="color:#4dd25b !important;border-color:#4dd25b !important;">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#4dd25b !important;">Purchase</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#4dd25b !important;">Purchasing the item</div>
+                                            </div>
+                                            <div class="col-md-4 mt-step-col active">
+                                                <div class="mt-step-number bg-white" style="color:#5ea8f8 !important;border-color:#5ea8f8 !important;">
+                                                    <i class="fa fa-cc-visa"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#5ea8f8 !important;">Payment</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#5ea8f8 !important;">Complete your payment</div>
+                                            </div>
+                                            <div class="col-md-4 mt-step-col last">
+                                                <div class="mt-step-number bg-white">
+                                                    <i class="fa fa-rocket"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade">Deploy</div>
+                                                <div class="mt-step-content font-grey-cascade">Receive item integration</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-element-step">
+                                        <div class="row step-line">
+                                            <div class="col-md-4 mt-step-col first done">
+                                                <div class="mt-step-number bg-white" style="color:#4dd25b !important;border-color:#4dd25b !important;">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#4dd25b !important;">Purchase</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#4dd25b !important;">Purchasing the item</div>
+                                            </div>
+                                            <div class="col-md-4 mt-step-col done">
+                                                <div class="mt-step-number bg-white"style="color:#4dd25b !important;border-color:#4dd25b !important;">
+                                                    <i class="fa fa-cc-visa"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#4dd25b !important;">Payment</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#4dd25b !important;">Complete your payment</div>
+                                            </div>
+                                            <div class="col-md-4 mt-step-col last active">
+                                                <div class="mt-step-number bg-white" style="color:#5ea8f8 !important;border-color:#5ea8f8 !important;">
+                                                    <i class="fa fa-rocket"></i>
+                                                </div>
+                                                <div class="mt-step-title uppercase font-grey-cascade" style="color:#5ea8f8 !important;">Deploy</div>
+                                                <div class="mt-step-content font-grey-cascade" style="color:#5ea8f8 !important;">Receive item integration</div>
                                             </div>
                                         </div>
                                     </div>
