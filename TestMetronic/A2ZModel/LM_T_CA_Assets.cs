@@ -58,5 +58,12 @@ namespace TestMetronic
         public float? Resolution { get; set; }
         public float? Range1 { get; set; }
         public float? Range2 { get; set; }
+        //2018/09/12加字段,资产类型
+        public EquipmentType EquipType { get; set; }
+    }
+    public enum EquipmentType
+    {
+        Standard=0,
+        Reference=1
     }
 }
