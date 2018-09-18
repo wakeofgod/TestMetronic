@@ -13,6 +13,8 @@ namespace TestMetronic
         //可以为空,同一公司字段事件唯一
         [Display(Name = "事件")]
         public int? EventCode { get; set; }
+
+        public bool IsPrefer { get; set; }
     }
     //资产检修时间表
     //public class LM_T_CA_AssetSchedule : BaseModel

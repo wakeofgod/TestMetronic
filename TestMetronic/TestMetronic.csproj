@@ -212,6 +212,7 @@
     <Content Include="ForFunCode\用户界面.html" />
     <Content Include="ForFunCode\简单动画.html" />
     <Content Include="ForFunCode\编辑table.html" />
+    <Content Include="ForFunCode\美化单选框.html" />
     <Content Include="ForFunCode\选择器.html" />
     <Content Include="ForFunCode\阴影卡片.html" />
     <Content Include="FormLayOut.html" />
