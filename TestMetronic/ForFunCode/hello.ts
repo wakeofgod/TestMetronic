@@ -82,3 +82,77 @@ class Shape3D extends Shape {
 var cube = new Shape3D("cube", 30, 30, 30);
 console.log(cube.shoutout());
 console.log(cube.superShout());
+
+//枚举
+enum AlertLevel {
+    info,
+    warning,
+    error
+}
+function getAlertSubscribers(level: AlertLevel) {
+    var emails = new Array<string>();
+    switch (level) {
+        case AlertLevel.info:
+            emails.push("cst@domain.com");
+            break;
+        case AlertLevel.warning:
+            emails.push("development@domain.com");
+            emails.push("sysadmin@domain.com");
+            break;
+        case AlertLevel.error:
+            emails.push("development@domain.com");
+            emails.push("sysadmin@domain.com");
+            emails.push("management@domain.com");
+            break;
+        default: throw new Error("Invalid argument");
+    }
+    debugger;
+    //return emails;
+    for (var e in emails) {
+        console.log(emails[e]);
+    }
+}
+getAlertSubscribers(AlertLevel.info);
+getAlertSubscribers(AlertLevel.warning);
+//可选参数
+//默认参数
+//剩余参数,会被自动解析为javascript的argument的内建对象
+function add(...foo: number[]): number {
+    var result = 0;
+    for (var i = 0; i < foo.length; i++){
+        result += foo[i];
+    }
+    return result;      
+}
+//直接用数组传参数
+function add2(foo: number[]): number {
+    var result = 0;
+    for (var i = 0; i < foo.length; i++){
+        result += foo[i];
+    }
+    return result;
+}
+//函数重载
+function test(name: string): string;
+function test(age: number): string;
+function test(single: boolean): string;
+//实现函数签名必须兼容所有的重载签名，总是在参数列表的最后
+//编译成js后只有一个函数，而不是三个
+function test(value: (string | number | boolean)): string {
+    switch (typeof value) {
+        //模板字符串，使用反引号，可以包含占位符
+        case "string":
+            return `my name is $(value).`;
+        case "number":
+            return `i'm $(value) years old`;
+        case "boolean":
+            return value ? "i'm single" : "i'm not single";
+        default:
+            console.log("invalid operation");
+    }
+}
+
+function test2(name: string): string;
+function test2(a: number, b: number): string;
+function test2(a: number, b: number, c: boolean): string;
+function test2

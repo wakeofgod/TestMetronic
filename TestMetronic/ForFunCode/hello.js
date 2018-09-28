@@ -92,4 +92,72 @@ var Shape3D = (function (_super) {
 var cube = new Shape3D("cube", 30, 30, 30);
 console.log(cube.shoutout());
 console.log(cube.superShout());
-//# sourceMappingURL=hello.js.map
+//枚举
+var AlertLevel;
+(function (AlertLevel) {
+    AlertLevel[AlertLevel["info"] = 0] = "info";
+    AlertLevel[AlertLevel["warning"] = 1] = "warning";
+    AlertLevel[AlertLevel["error"] = 2] = "error";
+})(AlertLevel || (AlertLevel = {}));
+function getAlertSubscribers(level) {
+    var emails = new Array();
+    switch (level) {
+        case AlertLevel.info:
+            emails.push("cst@domain.com");
+            break;
+        case AlertLevel.warning:
+            emails.push("development@domain.com");
+            emails.push("sysadmin@domain.com");
+            break;
+        case AlertLevel.error:
+            emails.push("development@domain.com");
+            emails.push("sysadmin@domain.com");
+            emails.push("management@domain.com");
+            break;
+        default: throw new Error("Invalid argument");
+    }
+    debugger;
+    //return emails;
+    for (var e in emails) {
+        console.log(emails[e]);
+    }
+}
+getAlertSubscribers(AlertLevel.info);
+getAlertSubscribers(AlertLevel.warning);
+//可选参数
+//默认参数
+//剩余参数,会被自动解析为javascript的argument的内建对象
+function add() {
+    var foo = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        foo[_i] = arguments[_i];
+    }
+    var result = 0;
+    for (var i = 0; i < foo.length; i++) {
+        result += foo[i];
+    }
+    return result;
+}
+//直接用数组传参数
+function add2(foo) {
+    var result = 0;
+    for (var i = 0; i < foo.length; i++) {
+        result += foo[i];
+    }
+    return result;
+}
+//实现函数签名必须兼容所有的重载签名，总是在参数列表的最后
+//编译成js后只有一个函数，而不是三个
+function test(value) {
+    switch (typeof value) {
+        //模板字符串，使用反引号，可以包含占位符
+        case "string":
+            return "my name is $(value).";
+        case "number":
+            return "i'm $(value) years old";
+        case "boolean":
+            return value ? "i'm single" : "i'm not single";
+        default:
+            console.log("invalid operation");
+    }
+}
