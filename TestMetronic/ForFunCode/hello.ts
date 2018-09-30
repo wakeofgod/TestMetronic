@@ -151,8 +151,28 @@ function test(value: (string | number | boolean)): string {
             console.log("invalid operation");
     }
 }
-
+//typescript的重载是假实现
 function test2(name: string): string;
 function test2(a: number, b: number): string;
 function test2(a: number, b: number, c: boolean): string;
-function test2
+function test2(): string {
+    return "";
+}
+//使用let关键字，bar变量只能在if代码块中，不会变量提升到函数foo的顶端
+function foo1(): void {
+    if (true) {
+        let bar: number = 0;
+        bar = 1;
+    }
+    //alert(bar); 报错
+}
+//const和let具有同样的作用域
+function foo2(): void {
+    if (true) {
+        const bar: number = 0;
+        //bar = 1;报错不能被重新复制
+    }
+    //alert(bar); 报错
+}
+
+
