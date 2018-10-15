@@ -167,15 +167,15 @@ function test2() {
 //使用let关键字，bar变量只能在if代码块中，不会变量提升到函数foo的顶端
 function foo1() {
     if (true) {
-        var bar = 0;
-        bar = 1;
+        var bar_1 = 0;
+        bar_1 = 1;
     }
     //alert(bar); 报错
 }
 //const和let具有同样的作用域
 function foo2() {
     if (true) {
-        var bar = 0;
+        var bar_2 = 0;
         //bar = 1;报错不能被重新复制
     }
     //alert(bar); 报错
@@ -183,8 +183,9 @@ function foo2() {
 //立即调用函数 IIFE
 var bar = 0;
 (function () {
-    var foo3:Number=0;
-    bar=1;
+    var foo3 = 0;
+    bar = 1;
     console.log(bar);
     console.log(foo3);
 })();
+//# sourceMappingURL=hello.js.map

@@ -174,5 +174,13 @@ function foo2(): void {
     }
     //alert(bar); 报错
 }
+//立即调用函数 IIFE
+var bar = 0;
+(function () {
+    var foo3: Number = 0;
+    bar = 1;
+    console.log(bar);
+    console.log(foo3);
+})();
 
 
