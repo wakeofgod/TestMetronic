@@ -6,8 +6,15 @@
 	<meta charset="utf-8" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Scripts/jasny-bootstrap-3.1.3-dist/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/dropzone.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.10.2.min.js"></script>
     <script src="Scripts/jasny-bootstrap-3.1.3-dist/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+    <script src="Scripts/dropzone.js"></script>
+    <style>
+        .dz-preview{
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -17,5 +24,20 @@
         <span class="fileinput-filename"></span>
         <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
     </div>
+    <div class="dropzone dropzone-file-area dz-clickable" id="my-dropzone" style="display:inline-block;width:10%;height:36px;min-height:10px !important;padding:0 0 !important;">
+        <div class="dz-default dz-message" style="display:none;"><span></span></div>
+    </div>
+    <script>
+        Dropzone.options.myDropzone = {
+            url:'hrrp://www.baidu.com',
+            maxFilesize: 5,
+            uploadMultiple: false,
+            acceptedFiles: ".xlsx,.xls,.docx,.docm",
+            addRemoveLinks: false,
+            success: function (file, reponse) {
+                //$("my-dropzone ").find(".dz-preview").remove();
+            }
+        };
+    </script>
 </body>
 </html>
