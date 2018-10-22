@@ -188,4 +188,67 @@ var bar = 0;
     console.log(bar);
     console.log(foo3);
 })();
-//# sourceMappingURL=hello.js.map
+//类型参数约束，报错了???
+//function assign<T extends U, U>(target: T, source: U): T {
+//    for (let id in source) {
+//        target[id] = source[id];
+//    }
+//    return target;
+//}
+function foo4(x, y) {
+    switch (x) {
+        case 3: if (y)
+            return 2;
+        case 4: return 3;
+        default: return 4;
+    }
+}
+function foo5(x) {
+    if (x) {
+        return 10;
+    }
+    else {
+        throw new Error();
+    }
+    return 1;
+}
+//换行会自动插入分号，后面的代码不能访问
+//function f() {
+//    return
+//    { x: "string" };
+//}
+//case语句贯穿 看不出有什么问题
+//function foo6(x: number) {
+//    switch (x%3) {
+//        case 0: console.log("even");
+//        case 1: console.log("odd");
+//            break;
+//        case 2: console.log();
+//    }
+//}
+//幂运算符 **会自动转换为Math.pow
+//var x = 2 ** 3;
+//var y = 10;
+//y **= 2;
+//var z = -(4 ** 3);
+function f1(_a) {
+    var _b = _a === void 0 ? {} : _a, _c = _b.x, x = _c === void 0 ? 0 : _c, _d = _b.y, y = _d === void 0 ? 0 : _d;
+}
+f1();
+f1({});
+f1({ x: 1 });
+f1({ y: 1 });
+f1({ x: 1, y: 1 });
+function f2(_a) {
+    var _b = _a === void 0 ? { x: 0 } : _a, x = _b.x, _c = _b.y, y = _c === void 0 ? 0 : _c;
+}
+f2();
+//f2({});//报错,缺少x
+f2({ x: 1 });
+//f2({ y: 1 });//报错
+f2({ x: 1, y: 1 });
+//支持 for of
+var expr = [0, 1, 0, 2];
+for (var _i = 0, expr_1 = expr; _i < expr_1.length; _i++) {
+    var x = expr_1[_i];
+}
