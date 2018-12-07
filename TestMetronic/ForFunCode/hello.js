@@ -7,9 +7,12 @@
 //}
 //document.body.innerHTML = area("rectangle", 30, 15);
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -49,7 +52,7 @@ var __extends = (this && this.__extends) || (function () {
 //};
 //shape.popup();
 //类
-var Shape = (function () {
+var Shape = /** @class */ (function () {
     function Shape(name, width, height) {
         this.name = name;
         this.area = width * height;
@@ -69,7 +72,7 @@ var Shape = (function () {
 //console.log('Width of Shape: ' + square.width);
 //console.log('Height of Shape: ' + square.height);
 //继承
-var Shape3D = (function (_super) {
+var Shape3D = /** @class */ (function (_super) {
     __extends(Shape3D, _super);
     function Shape3D(name, width, height, length) {
         var _this = 
@@ -252,3 +255,4 @@ var expr = [0, 1, 0, 2];
 for (var _i = 0, expr_1 = expr; _i < expr_1.length; _i++) {
     var x = expr_1[_i];
 }
+//# sourceMappingURL=hello.js.map

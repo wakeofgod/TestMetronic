@@ -34,6 +34,18 @@
         Placeholder for some buttons to change slider behavior
         <button id="btnReset">重置</button>
     </div>
+    <!--父级用relative，子级用absolute，位移后不占用空间-->
+    <div style="position:relative;">
+        <div style="width:400px; height:400px;background-color:#808080;">
+            1
+        </div>
+        <div style="width:200px;height:200px;background-color:red;transform:translate(0,-200px);position:absolute;">
+            2
+        </div>
+        <div style="width:200px;height:200px;background-color:yellow;">
+            3
+        </div>
+    </div>
     <script>
         var slider;
         //执行顺序，必须初始化插件后才能把插件保存为变量,注意作用域
