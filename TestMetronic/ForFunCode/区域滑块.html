@@ -24,6 +24,14 @@
             border-top: 3px solid #000;
             padding: 10px 0 0;
         }
+        body,html,ul,li{padding:0;margin:0;list-style:none;}
+.search_btn{margin:30px auto 0;display:block;width:97px; height:38px; line-height:38px; background:#CD0000; border-left:1px solid #CD0000; text-align:center; font-size:14px; color:#fff; cursor:pointer;position:relative;z-index：1}
+.search_value{overflow:hidden;}
+.search_value span{float:left;margin-left:12px;}
+.search_value i{width:10px;height:6px;background:url(images/search_arrow.png) no-repeat;float:right;margin:17px 12px 0 0 }
+.search_option{width:97px;line-height:30px;text-align:center;color:#000;background:#FCF3F3;display:none;position:absolute;z-index:3;top:38px;left:0;}
+.search_option a{color:#000;display:block;text-decoration:none;}
+.search_option a:hover{color:#CD0000;text-decoration:none;}
     </style>
 </head>
 <body>
@@ -44,6 +52,20 @@
         </div>
         <div style="width:200px;height:200px;background-color:yellow;">
             3
+        </div>
+    </div>
+    <div class="search_btn">
+        <div class="search_value"><span>个股体检</span><i></i></div><!--或者将图片作为search_value的背景图-->
+        <div class="search_option">
+            <a class="search_o" href="javascript:void(0)">个股体检</a>
+            <a class="search_o" href="javascript:void(0)">查行情</a>
+        </div>
+    </div>
+    <div class="search_btn">
+        <div class="search_value"><span>个股体检</span><i></i></div><!--或者将图片作为search_value的背景图-->
+        <div class="search_option">
+            <a class="search_o" href="javascript:void(0)">个股体检<br />张三</a>
+            <a class="search_o" href="javascript:void(0)">查行情<br />李四</a>
         </div>
     </div>
     <script>
@@ -119,6 +141,23 @@
                 }
             });
             slider = $(".js-range-slider").data("ionRangeSlider");
+        });
+        $(".search_value").click(function (evt) {
+            evt.stopPropagation(); //阻止冒泡
+            $(this).next().show();
+            $(this).parent().css("z-index", "2").siblings().css("z-index", "1"); //当前选中的层级最高，防止IE7 下 遇到position:relative 被遮挡
+            $(this).parent().siblings().find(".search_option").hide();   //隐藏其他的下拉框选项
+        });
+
+        $(".search_option a").click(function () {
+            $(this).parent().prev().find("span").html($(this).html());   //选中内容填充
+            $(this).parents("search_btn").css("z-index", "1");
+            $(this).parent().hide();
+        });
+
+        $("body").click(function () {  //点击页面其他部分，下拉框消失
+            $(".search_option").hide();
+            $(".search_btn").css("z-index", "1");
         });
     </script>
 </body>
