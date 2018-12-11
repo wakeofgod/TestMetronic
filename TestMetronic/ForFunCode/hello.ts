@@ -201,7 +201,7 @@ function foo4(x: number, y: boolean): number {
 function foo5(x: boolean): number{
     if (x) { return 10; }
     else { throw new Error(); }
-    return 1;
+    //return 1;
 }
 //换行会自动插入分号，后面的代码不能访问
 //function f() {

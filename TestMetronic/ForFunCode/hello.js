@@ -213,7 +213,7 @@ function foo5(x) {
     else {
         throw new Error();
     }
-    return 1;
+    //return 1;
 }
 //换行会自动插入分号，后面的代码不能访问
 //function f() {
