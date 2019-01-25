@@ -31,4 +31,15 @@ namespace TestMetronic
         /// </summary>
         public long? OtherKey { get; set; }
     }
+    public enum ENcrStatus
+    {
+        [Description("Created")]
+        Created,
+        [Description("CA Submitted")]
+        CASubmitted,
+        [Description("CAR Submitted")]
+        CARSubmitted,
+        [Description("Closed")]
+        Closed
+    }
 }
