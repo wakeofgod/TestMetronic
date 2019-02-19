@@ -225,6 +225,7 @@
     <Content Include="LayOut2.html" />
     <Content Include="LayOut3.html" />
     <Content Include="LayOut4.html" />
+    <Content Include="ModalTaps.html" />
     <Content Include="MutiSelect.html" />
     <Content Include="MutiSelect2.html" />
     <Content Include="packages.config" />

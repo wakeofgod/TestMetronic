@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalTag">
+        开始演示模态框
+    </button>
+    <div class="modal fade" id="ModalTag" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span style="display:inline-block;">
+                        MANAGE CODE
+                    </span>
+                    <ul class="nav nav-tabs" style="position:relative;right:10px;">
+                        <li id="tabCamera" class="active">
+                            <a href="#portlet_Camera" data-toggle="tab">WebCam</a>
+                        </li>
+                        <li id="tabReader">
+                            <a href="#portlet_Reader" data-toggle="tab">Reader</a>
+                        </li>
+                        <li id="tabGenerate">
+                            <a href="#portlet_Generate" data-toggle="tab">Generate</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="portlet_Camera">
+                            <div style="width:300px;height:300px;">
+                                web camera
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="portlet_Reader">
+                            Reader
+                        </div>
+                        <div class="tab-pane" id="portlet_Generate">
+                            Generate
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn purple">
+                        Recall
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
