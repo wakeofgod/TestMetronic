@@ -60,6 +60,9 @@ namespace TestMetronic
         public float? Range2 { get; set; }
         //2018/09/12加字段,资产类型
         public EquipmentType EquipType { get; set; }
+        //2019/02/22添加字段
+        [MaxLength(30)]
+        public string QRCode { get; set; }
     }
     public enum EquipmentType
     {
