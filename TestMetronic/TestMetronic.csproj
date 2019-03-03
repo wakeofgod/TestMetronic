@@ -389,6 +389,7 @@
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanicui.js" />
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanticui.js" />
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanticui.min.js" />
+    <Content Include="Scripts\html5-qrcode.js" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.css" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.skinFlat.css" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.skinHTML5.css" />
@@ -440,6 +441,7 @@
     <Content Include="Scripts\RowReorder-1.2.4\js\rowReorder.semanticui.js" />
     <Content Include="Scripts\RowReorder-1.2.4\js\rowReorder.semanticui.min.js" />
     <Content Include="Scripts\RowReorder-1.2.4\License.txt" />
+    <Content Include="TestQRCode.html" />
     <Content Include="zhezhaoceng.html" />
     <Content Include="Scripts\ColReorder-1.5.0\Readme.md" />
     <Content Include="Scripts\RowReorder-1.2.4\Readme.md" />
@@ -452,6 +454,7 @@
     <Content Include="上传Excel.html" />
     <Content Include="测试JsQrcode.html" />
     <Content Include="测试打印.html" />
+    <Content Include="识别二维码.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
