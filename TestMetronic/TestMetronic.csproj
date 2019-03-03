@@ -413,6 +413,7 @@
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\js\bootstrap-select.js.map" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\LICENSE" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\README.md" />
+    <Content Include="Scripts\qrscan.js" />
     <Content Include="Scripts\RowReorder-1.2.4\css\rowReorder.bootstrap.css" />
     <Content Include="Scripts\RowReorder-1.2.4\css\rowReorder.bootstrap.min.css" />
     <Content Include="Scripts\RowReorder-1.2.4\css\rowReorder.bootstrap4.css" />
