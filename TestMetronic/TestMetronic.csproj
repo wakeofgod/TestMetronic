@@ -124,6 +124,7 @@
     <Content Include="bin\TestMetronic.dll" />
     <Content Include="bin\TestMetronic.pdb" />
     <Content Include="CheckBox.html" />
+    <Content Include="ConnectDropDown.html" />
     <Content Include="Content\dropzone.css" />
     <Content Include="Content\Images\clock.png" />
     <Content Include="Content\Images\counter.png" />

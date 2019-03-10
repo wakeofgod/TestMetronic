@@ -97,4 +97,3 @@ C:\MyCode\test\TestMetronic\TestMetronic\TestMetronic\bin\Microsoft.CodeDom.Prov
 C:\MyCode\test\TestMetronic\TestMetronic\TestMetronic\obj\Debug\TestMetronic.csprojResolveAssemblyReference.cache
 C:\MyCode\test\TestMetronic\TestMetronic\TestMetronic\obj\Debug\TestMetronic.dll
 C:\MyCode\test\TestMetronic\TestMetronic\TestMetronic\obj\Debug\TestMetronic.pdb
-C:\MyCode\TestMetronic\TestMetronic\TestMetronic\obj\Debug\TestMetronic.csprojResolveAssemblyReference.cache

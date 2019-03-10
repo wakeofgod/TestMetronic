@@ -64,9 +64,7 @@
                 errBack = function (error) {
                 console.log("Video capture error: ", error.code);
             };
-
             //navigator.getUserMedia这个写法在Opera中好像是navigator.getUserMedianow
-
             if (navigator.getUserMedia) {
                 navigator.getUserMedia({ 'audio': false, 'video': { 'optional': [{ 'sourceId': 0}]} }, function (stream) {
                     video.srcObject = stream;
@@ -74,43 +72,18 @@
                 }, errBack);
 
                 navigator.getUserMedia(videoObj, function (stream) {
-                    debugger;
                     video.srcObject = stream;
-
                     video.play();
-
                 }, errBack);
-
             } else if (navigator.webkitGetUserMedia) {
-
                 navigator.webkitGetUserMedia({ 'audio': false, 'video': { 'optional': [{ 'sourceId': 0}]} },function (stream) {
-
                     video.srcObject = window.webkitURL.createObjectURL(stream);
-
                     video.play();
-
                 }, errBack);
-
-                /*
-
                 navigator.webkitGetUserMedia(videoObj, function (stream) {
-
-                    video.src = window.webkitURL.createObjectURL(stream);
-
-                    video.play();
-
-                }, errBack);
-
-                */
-
-                navigator.webkitGetUserMedia(videoObj, function (stream) {
-
                     video.srcObject = window.webkitURL.createObjectURL(stream);
-
                     video.play();
-
                 }, errBack);
-
             }
 
             //这个是拍照按钮的事件，
