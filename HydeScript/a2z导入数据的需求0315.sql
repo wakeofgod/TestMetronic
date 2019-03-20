@@ -89,3 +89,20 @@ SELECT * FROM MyValuechain_Local.dbo.LM_T_CA_AssetActionLog
 SELECT * FROM MyValuechain_Local.dbo.LM_T_CA_Assets WHERE CompanyID=11110
 
 --历史记录的用户id是单独的，怎么和VC同步?
+
+EXECUTE a2zmjs.dbo.Pro_AssetMigration_part2 11110
+
+--检查数据
+SELECT M.ID,M.Name FROM MyValuechain_Local.dbo.LM_T_CA_Assets M
+INNER JOIN a2zmjs.dbo.assets A ON M.Name=a.gauge_number COLLATE Chinese_PRC_CI_AS
+WHERE M.CompanyID=11110
+
+SELECT COUNT(*) FROM a2zmjs.dbo.assets
+
+SELECT logs.ID,logs.AssetGuid,M.Name,logs.EventContent FROM MyValuechain_Local.dbo.LM_T_CA_AssetActionLog logs
+INNER JOIN MyValuechain_Local.dbo.LM_T_CA_Assets M ON logs.AssetGuid=M.ID
+INNER JOIN a2zmjs.dbo.assets A ON M.Name=A.gauge_number COLLATE Chinese_PRC_CI_AS
+WHERE M.CompanyID=11110
+
+SELECT COUNT(*) FROM a2zmjs.dbo.history
+
