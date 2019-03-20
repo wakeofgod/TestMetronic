@@ -106,3 +106,13 @@ WHERE M.CompanyID=11110
 
 SELECT COUNT(*) FROM a2zmjs.dbo.history
 
+--Schedule
+select * from a2zmjs.dbo.management
+
+select mge_lastdate,mge_interval1,mge_interval2,mge_units1,mge_units2 from a2zmjs.dbo.management
+
+select mge_asset,COUNT(*)  from a2zmjs.dbo.management group by mge_asset
+
+select * from MyValuechain_Local.dbo.LM_T_CA_ScheduleSettings
+
+select * from MyValuechain_Local.dbo.LM_T_CA_AssetSchedule
