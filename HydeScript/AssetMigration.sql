@@ -1,9 +1,6 @@
 USE a2zmjs
 go
-
---ALTER DATABASE MyValuechain_Local COLLATE SQL_Latin1_General_CP1_CI_AS
---ALTER DATABASE MyValuechain_Local SINGLE_USER WITH ROLLBACK IMMEDIATE
---go
+--Foreign collation rules are different. When testing locally, COLLATE Chinese_PRC_CI_AS needs to be added after querying column names
 if exists(select * from sys.objects where name='Pro_AssetMigration')
 begin
 	drop procedure Pro_AssetMigration

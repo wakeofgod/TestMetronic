@@ -62,6 +62,12 @@ SELECT ID FROM MyValuechain_Local.dbo.LM_T_CA_Field
 
 SELECT * FROM a2zmjs.dbo.history
 
+SELECT DISTINCT his_asset  FROM a2zmjs.dbo.history
+--查找事件的编号，输入内容,查找资产的编号，找到对应的资产guid
+SELECT * FROM a2zmjs.dbo.events
+
+SELECT * FROM a2zmjs.dbo.assets WHERE gauge_id=9
+
 SELECT * FROM a2zmjs.dbo.userspass WHERE [user_id]=2
 
 --日期格式需要转换
@@ -77,5 +83,9 @@ SELECT @DateString=SUBSTRING(@DateString,1,4)+'/'+SUBSTRING(@DateString,5,2)+'/'
 SELECT ISDATE(@DateString)
 SELECT CONVERT(DATETIME,@DateString)
 PRINT @DateString
+
+SELECT * FROM MyValuechain_Local.dbo.LM_T_CA_AssetActionLog
+
+SELECT * FROM MyValuechain_Local.dbo.LM_T_CA_Assets WHERE CompanyID=11110
 
 --历史记录的用户id是单独的，怎么和VC同步?
