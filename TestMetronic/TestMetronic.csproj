@@ -390,7 +390,6 @@
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanicui.js" />
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanticui.js" />
     <Content Include="Scripts\FixedColumns-3.2.5\js\fixedColumns.semanticui.min.js" />
-    <Content Include="Scripts\html5-qrcode.js" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.css" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.skinFlat.css" />
     <Content Include="Scripts\ion.rangeSlider-2.2.0\css\ion.rangeSlider.skinHTML5.css" />
@@ -415,6 +414,7 @@
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\js\bootstrap-select.js.map" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\LICENSE" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\README.md" />
+    <Content Include="Scripts\jquery-barcode.min.js" />
     <Content Include="Scripts\qrscan.js" />
     <Content Include="Scripts\RowReorder-1.2.4\css\rowReorder.bootstrap.css" />
     <Content Include="Scripts\RowReorder-1.2.4\css\rowReorder.bootstrap.min.css" />
@@ -456,7 +456,6 @@
     <Content Include="测试BarCode.html" />
     <Content Include="测试JsQrcode.html" />
     <Content Include="测试打印.html" />
-    <Content Include="识别二维码.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

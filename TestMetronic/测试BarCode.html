@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-barcode.min.js"></script>
 </head>
 <body class="hold-transition login-page">
+    <div id="bcTarget"></div>  
     <script>
     window.onload = function(e){
         var code = "";
@@ -32,6 +35,7 @@
             }
         }
     }
+    $("#bcTarget").barcode("1234567890128", "ean13");
     </script>
 </body>
 </html>
