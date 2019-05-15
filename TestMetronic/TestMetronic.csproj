@@ -129,6 +129,7 @@
     <Content Include="Content\Images\clock.png" />
     <Content Include="Content\Images\counter.png" />
     <Content Include="Content\Images\ncr.png" />
+    <Content Include="Content\Template\metronic-4.5.6\assets\global\css\select2.min.css" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\css\bootstrap-select.css" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\css\bootstrap-select.min.css" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\bootstrap-select\js\bootstrap-select.js" />
@@ -200,6 +201,7 @@
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\jquery-multi-select\img\switch_original.png" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\jquery-multi-select\js\jquery.multi-select.js" />
     <Content Include="Content\Template\metronic-4.5.6\assets\global\plugins\jquery-multi-select\LICENSE.txt" />
+    <Content Include="Content\Template\metronic-4.5.6\assets\global\scripts\select2.min.js" />
     <Content Include="css\bootstrap-switch.css" />
     <Content Include="css\bootstrap-switch.js" />
     <Content Include="ForFunCode\boot的table.html" />
@@ -442,6 +444,7 @@
     <Content Include="Scripts\RowReorder-1.2.4\js\rowReorder.semanticui.js" />
     <Content Include="Scripts\RowReorder-1.2.4\js\rowReorder.semanticui.min.js" />
     <Content Include="Scripts\RowReorder-1.2.4\License.txt" />
+    <Content Include="Select2Page.html" />
     <Content Include="TestQRCode.html" />
     <Content Include="zhezhaoceng.html" />
     <Content Include="Scripts\ColReorder-1.5.0\Readme.md" />
